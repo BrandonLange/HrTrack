@@ -3,6 +3,8 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="../node_modules/materialize-css/dist/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script>
     if (typeof module === 'object') {
         window.module = module;
@@ -18,12 +20,18 @@
         <div class="nav-wrapper">
             <a href="#" class="brand-logo">Logo</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="sass.html">Sass</a></li>
+                <li><a>HomePage</a></li>
                 <li><a href="badges.html">Components</a></li>
                 <li><a href="collapsible.html">JavaScript</a></li>
             </ul>
         </div>
     </nav>
+    <div id="main-container"></div>
+    <script>
+    $(document).ready(function() {
+        $("#main-container").load("homepage.html");
+    })
+    </script>
 </body>
 
 </html>
