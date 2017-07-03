@@ -1,0 +1,25 @@
+{
+  "name": "hrtrack",
+  "version": "1.0.0",
+  "description": "hrtrack",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrandonLange/HrTrack.git"
+  },
+  "author": "brandon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrandonLange/HrTrack/issues"
+  },
+  "homepage": "https://github.com/BrandonLange/HrTrack#readme",
+  "devDependencies": {
+    "electron": "^1.6.11",
+    "jquery": "^3.2.1",
+    "materialize-css": "^0.99.0"
+  }
+}
