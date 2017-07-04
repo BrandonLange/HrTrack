@@ -1,33 +1,24 @@
 var SetupForm = function() {
 
     var Initialise = function() {
-    	CheckSession();
         Events();
     }
 
     var Events = function() {
-        $("#add-item").on("click", function() {
+    	$("#btn_login").on("click", function() {
+    		var username = $("#txt_username").val();
+    		var password = $("#txt_password").val();
+    		login(username, password);
+    	})
+    }
 
-            $("#policy-form").show();
-        })
-
-        $("#update-policy").on("click", function() {
-            var policyName = $("#policy-name").val();
-            var policyDesc = $("#policy-description").val();
-
-            var html = '<li class="collection-item blue darken-4">' + policyName + '</li>';
-
-            $(".collection").append(html);
-
-            var policyName = $("#policy-name").val("");
-            var policyDesc = $("#policy-description").val("");
-
-            $("#policy-form").hide();
-        })
-
-        $("#attach-document").on("click", function() {
-        	$("#file-upload").click();
-        })
+    var login = function(username, password) {
+    	if(username == "1" && password == "1") {
+    		window.location.href = "menu/Homepage.html";
+    	}
+    	else {
+    		alert("Failed to login");
+    	}
     }
 
     return {

@@ -2,8 +2,6 @@
 <html>
 
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../node_modules/semantic-ui/dist/semantic.css">
     <link rel="stylesheet" type="text/css" href="../app/assets/css/Login.css">
     <script>
@@ -14,6 +12,7 @@
     </script>
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/semantic-ui/dist/semantic.min.js"></script>
+    <script src="index.js"></script>
 </head>
 
 <body>
@@ -24,21 +23,21 @@
                 Log-in to your account
               </div>
             </h2>
-            <form action="index.html" method="get" class="ui large form">
+            <form method="get" class="ui large form">
                 <div class="ui stacked secondary  segment">
                     <div class="field">
                         <div class="ui left icon input">
                             <i class="user icon"></i>
-                            <input type="text" name="email" placeholder="E-mail address">
+                            <input id="txt_username" type="text" placeholder="Username">
                         </div>
                     </div>
                     <div class="field">
                         <div class="ui left icon input">
                             <i class="lock icon"></i>
-                            <input type="password" name="password" placeholder="Password">
+                            <input id="txt_password" type="password" name="password" placeholder="Password">
                         </div>
                     </div>
-                    <div class="ui fluid large violet submit button">Login</div>
+                    <div id="btn_login" class="ui fluid large violet submit button">Login</div>
                 </div>
                 <div class="ui error message"></div>
             </form>
