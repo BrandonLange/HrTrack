@@ -9,11 +9,3 @@ body > .grid {
 .column {
     max-width: 450px;
 }
-
-body {
-    background-image: url('../Images/Purple_background.jpg');
-}
-
-h1 {
-    color: purple;
-}

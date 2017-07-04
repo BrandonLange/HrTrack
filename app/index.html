@@ -5,6 +5,7 @@
     <link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../node_modules/semantic-ui/dist/semantic.css">
+    <link rel="stylesheet" type="text/css" href="../app/assets/css/Login.css">
     <script>
     if (typeof module === 'object') {
         window.module = module;
@@ -16,27 +17,36 @@
 </head>
 
 <body>
-    <!--Navbar -->
-    <div id="mainContent" class="ui secondary pointing menu">
-        <a class="item">
-            Home
-        </a>
-        <a class="item">
-             Messages
-        </a>
-        <a class="item">
-            Friends
-        </a>
-        <div class="right menu">
-            <a class="ui item">
-                Logout
-             </a>
+    <div class="ui middle aligned center aligned grid">
+        <div class="column">
+            <h2 class="ui image header">
+              <div class="content">
+                Log-in to your account
+              </div>
+            </h2>
+            <form action="index.html" method="get" class="ui large form">
+                <div class="ui stacked secondary  segment">
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="user icon"></i>
+                            <input type="text" name="email" placeholder="E-mail address">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="lock icon"></i>
+                            <input type="password" name="password" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="ui fluid large violet submit button">Login</div>
+                </div>
+                <div class="ui error message"></div>
+            </form>
+            <div class="ui message">
+                <a href="index.html">Register</a>
+            </div>
         </div>
     </div>
-    <!--Navbar Ends -->
-    <div id="main-container"></div>
-    <script>
-    </script>
 </body>
 
 </html>
