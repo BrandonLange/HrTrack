@@ -1,0 +1,19 @@
+body > .grid {
+    height: 100%;
+}
+
+.image {
+    margin-top: -100px;
+}
+
+.column {
+    max-width: 450px;
+}
+
+body {
+    background-image: url('../Images/Purple_background.jpg');
+}
+
+h1 {
+    color: purple;
+}
