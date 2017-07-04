@@ -3,6 +3,33 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="../node_modules/materialize-css/dist/css/materialize.min.css">
+    <style type="text/css">
+    .btn {
+        color: black;
+        font-weight: bold;
+        margin-left: 5px;
+    }
+    
+    .btn-info {
+        background: linear-gradient(white, #90CAF9);
+        border: 1px solid #90CAF9;
+    }
+    
+    .btn-success {
+        background: linear-gradient(white, #A5D6A7);
+        border: 1px solid #A5D6A7;
+    }
+    
+    .collection {
+        border-width: 0px;
+    }
+    
+    .collection .collection-item {
+        padding: 0px;
+        text-align: center;
+        color: white;
+    }
+    </style>
     <script>
     if (typeof module === 'object') {
         window.module = module;
@@ -11,19 +38,54 @@
     </script>
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/materialize-css/dist/js/materialize.min.js"></script>
+    <script src="index.js"></script>
 </head>
 
 <body>
     <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Logo</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <div class="nav-wrapper blue lighten-2">
+            <ul id="nav-mobile" class="hide-on-med-and-down">
+                <li><a href="#">Logo</a></li>
                 <li><a href="sass.html">Sass</a></li>
                 <li><a href="badges.html">Components</a></li>
                 <li><a href="collapsible.html">JavaScript</a></li>
             </ul>
+            <img class="right" src="assets/images/default-user.png" style="width: 50px; margin-top: 10px; margin-right: 10px; border-radius: 25px;">
         </div>
+        <h3 class="header" style="color: purple;"><img src="assets/images/icon.jpg" width="100px;"> <b>Company Policy Maintenence</b></h3>
+        <hr width="100%;">
+        <a id="add-item" class="waves-effect waves-light btn btn-info blue lighten-3 left">add item</a>
+        <a class="waves-effect waves-light btn btn-info blue lighten-3 left">
+            <</a>
+                <a class="waves-effect waves-light btn btn-info blue lighten-3 left">></a>
+                <a class="waves-effect waves-light btn btn-info blue lighten-3 left">up</a>
+                <a class="waves-effect waves-light btn btn-info blue lighten-3 left">down</a>
+                <a class="waves-effect waves-light btn btn-info blue lighten-3 left">delete</a>
+                <a class="waves-effect waves-light btn btn-success green lighten-3 right">suggest policy ammendment</a>
+                <a class="waves-effect waves-light btn btn-success green lighten-3 right">adopt group policy</a>
+                <hr width="100%" style="margin-top: 55px;">
     </nav>
+    <div class="col s6">
+    </div>
+    <div class="row">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <ul class="collection col s6">
+                    </ul>
+                </div>
+                <div class="input-field col s6" id="policy-form" hidden>
+                    <input placeholder="Please enter policy name" id="policy-name" type="text" class="validate">
+                    <textarea placeholder="Please enter a policy description" id="policy-description" class="materialize-textarea"></textarea>
+                    <input id="file-upload" type="file" class="validate" hidden>
+                    <div>
+                        <a class="waves-effect waves-light btn btn-success green lighten-3" id="attach-document">attach policy document</a>
+                        <a class="waves-effect waves-light btn btn-info blue lighten-3" id="update-policy">update</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>
