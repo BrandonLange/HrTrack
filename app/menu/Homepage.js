@@ -5,13 +5,29 @@
 // ////////////////////////////////////////////////////////////////////////////////////////////////////
 var Homepage = function() {
 
-	var Initialise = function() {
+    var Initialise = function() {
+        LoadEvents();
+    }
 
-	}
+    var LoadEvents = function() {
+        $("#btn_policies").on("click", function() {
+            $("#main_page_content").load("policies/policies.html");
+        })
 
-	return {
-		init: function() {
-			Initialise();
-		}
-	}
+        $("#btn_duties").on("click", function() {
+            $("#main_page_content").load("duties/duties.html");
+        })
+    }
+
+    return {
+        init: function() {
+            Initialise();
+        }
+    }
 }()
+
+$(document).ready(function() {
+    jQuery(function() {
+        Homepage.init();
+    });
+})
