@@ -2,7 +2,6 @@
 <html>
 
 <head>
-    <!--<link rel="stylesheet" type="text/css" href="../node_modules/materialize-css/dist/css/materialize.min.css">-->
     <link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../node_modules/semantic-ui/dist/semantic.css">
@@ -13,13 +12,12 @@
     }
     </script>
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <!-- <script src="../node_modules/materialize-css/dist/js/materialize.min.js"></script> -->
     <script src="../node_modules/semantic-ui/dist/semantic.min.js"></script>
 </head>
 
 <body>
     <!--Navbar -->
-    <div class="ui secondary pointing menu">
+    <div id="mainContent" class="ui secondary pointing menu">
         <a class="item">
             Home
         </a>
@@ -30,20 +28,14 @@
             Friends
         </a>
         <div class="right menu">
-            <a href="Login.html" class="ui item">
+            <a class="ui item">
                 Logout
              </a>
         </div>
     </div>
     <!--Navbar Ends -->
-    <div class="ui segment">
-        <p></p>
-    </div>
     <div id="main-container"></div>
     <script>
-    $(document).ready(function() {
-        $("#main-container").load("homepage.html");
-    })
     </script>
 </body>
 

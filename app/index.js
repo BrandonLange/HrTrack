@@ -1,6 +1,7 @@
 var SetupForm = function() {
 
     var Initialise = function() {
+    	CheckSession();
         Events();
     }
 
