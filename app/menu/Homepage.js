@@ -9,6 +9,16 @@ var Homepage = function() {
         LoadEvents();
     }
 
+    var goToTab = function(itemToLoad) {
+        switch (itemToLoad) {
+            case "COMPANYPOLICIES":
+                {
+                    $("#main_page_content").load("policies/company/CompanyPolicies.html");
+                }
+                break;
+        }
+    }
+
     var LoadEvents = function() {
         $("#btn_policies").on("click", function() {
             $("#main_page_content").load("policies/policies.html");
@@ -20,7 +30,12 @@ var Homepage = function() {
 
 
         $("#btn_logout").on("click", function() {
-            $("#main_page_content").load("index.html");
+            window.location.href = "../index.html";
+        })
+
+        $(".tab_item").on("click", function() {
+            var itemToLoad = $(this).attr("data-target");
+            goToTab(itemToLoad);
         })
     }
 
