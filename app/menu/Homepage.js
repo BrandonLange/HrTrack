@@ -17,6 +17,11 @@ var Homepage = function() {
         $("#btn_duties").on("click", function() {
             $("#main_page_content").load("duties/duties.html");
         })
+
+
+        $("#btn_logout").on("click", function() {
+            $("#main_page_content").load("index.html");
+        })
     }
 
     return {

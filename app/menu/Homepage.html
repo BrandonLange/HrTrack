@@ -2,6 +2,7 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="../../node_modules/semantic-ui/dist/semantic.css">
+    <link rel="stylesheet" type="text/css" href="../../app/assets/css/HomePage.css">
     <script>
     if (typeof module === 'object') {
         window.module = module;
@@ -16,64 +17,58 @@
 <body>
     <!--Navbar -->
     <div class="ui secondary pointing menu">
-        <a id="btn_policies" class="item">
-            Policies
-        </a>
-        <a id="btn_duties" class="item">
-             Duties
-        </a>
-        <a class="item">
-            Friends
-        </a>
-        <div class="right menu">
-            <a href="index.html" class="ui item">
-                Logout
-             </a>
+        <a id="btn_homepage" class="ui item"><img class="ui small image" src="../../app/assets/Images/icon.jpg"></a>
+        <div class="right menu" id="right_menu">
+            <a id="btn_policies" class="ui item">Policies</a>
+            <a id="btn_duties" class="ui item">Duties</a>
+            <a class="item">Friends</a>
         </div>
+        <a id="btn_logout" class="ui item">Logout</a>
     </div>
-    <div id="main_page_content">
-    <!-- <img class="responsive-img" src="../../app/assets/Images/HomePage-Logo.png"> -->
     <!--End Navbar -->
-    <!--HR-Track Logo-->
-    <img class="responsive-img" src="../../app/assets/Images/HomePage-Logo.png">
-    <!--Navigation Cards-->
-    <div class="ui cards">
-        <div class="card">
-            <div class="content">
-                <div class="header center aligned"><i class="circular users icon"></i>HR</div>
-                <hr>
-                <div class="meta"><a href="#">Employees</a></div>
-                <div class="meta"><a href="#">Teams</a></div>
-                <div class="meta"><a href="#">KPI's</a></div>
-                <div class="meta"><a href="#">Leave calendar</a></div>
+    <div id="main_page_content">
+        <!--HR-Track Logo-->
+        <img src="../../app/assets/Images/HomePage-Logo.png">
+        <!--Navigation Cards-->
+        <div class="ui three column doubling stackable grid container">
+            <div class="ui cards">
+                <div class="card">
+                    <div class="content">
+                        <div class="header center aligned"><i class="circular users icon"></i>HR</div>
+                        <hr>
+                        <div class="meta"><a>Employees</a></div>
+                        <div class="meta"><a>Teams</a></div>
+                        <div class="meta"><a>KPI's</a></div>
+                        <div class="meta"><a>Leave calendar</a></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="content">
+                        <div class="header center aligned"><i class="circular configure icon"></i>System</div>
+                        <hr>
+                        <div class="meta"><a>Countries</a></div>
+                        <div class="meta"><a>Currencies</a></div>
+                        <div class="meta"><a>Languages</a></div>
+                        <div class="meta"><a>Groups</a></div>
+                        <div class="meta"><a>Resellers</a></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="content">
+                        <div class="header center aligned"><i class="circular child icon"></i>Employee</div>
+                        <hr>
+                        <div class="meta"><a>My Details</a></div>
+                        <div class="meta"><a>Leave Request</a></div>
+                        <div class="meta"><a>Overtime</a></div>
+                        <div class="meta"><a>Claims</a></div>
+                        <div class="meta"><a>Travel Log</a></div>
+                        <div class="meta"><a>Merit Recommendation</a></div>
+                        <div class="meta"><a>KPI's</a></div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="card">
-            <div class="content">
-                <div class="header center aligned"><i class="circular configure icon"></i>System</div>
-                <hr>
-                <div class="meta"><a href="#">Countries</a></div>
-                <div class="meta"><a href="#">Currencies</a></div>
-                <div class="meta"><a href="#">Languages</a></div>
-                <div class="meta"><a href="#">Groups</a></div>
-                <div class="meta"><a href="#">Resellers</a></div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="content">
-                <div class="header center aligned"><i class="circular child icon"></i>Employee</div>
-                <hr>
-                <div class="meta"><a href="#">My Details</a></div>
-                <div class="meta"><a href="#">Leave Request</a></div>
-                <div class="meta"><a href="#">Overtime</a></div>
-                <div class="meta"><a href="#">Claims</a></div>
-                <div class="meta"><a href="#">Travel Log</a></div>
-                <div class="meta"><a href="#">Merit Recommendation</a></div>
-                <div class="meta"><a href="#">KPI's</a></div>
-            </div>
-        </div>
-    </div>
-    <!--Navigation Cards end -->
+        <!--Navigation Cards end -->
 </body>
 
 </html>
