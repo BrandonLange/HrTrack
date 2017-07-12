@@ -16,6 +16,11 @@ var Homepage = function() {
                     $("#main_page_content").load("policies/company/CompanyPolicies.html");
                 }
                 break;
+            case "GROUPPOLICIES":
+                {
+                    $("#main_page_content").load("policies/group/GroupPolicies.html");
+                }
+                break;
         }
     }
 
