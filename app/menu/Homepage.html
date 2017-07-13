@@ -14,30 +14,31 @@
 </head>
 
 <body style="overflow: hidden;">
-    <!--Navbar -->
-    <div class="ui secondary pointing menu">
-        <a id="btn_homepage" class="ui item"><img class="ui small image" src="../../app/assets/Images/icon.jpg"></a>
-        <a id="btn_logout" class="ui item" style="float: right; margin-left: 75%;">Logout</a>
-    </div>
-    <div class="ui vertical menu" style="margin-top: -15px; float: left; height: 94%;">
-        <a data-internalid="GROUP_POLICY" data-target="GROUPPOLICIES" class="item tab_item">Group Policy</a>
-        <a data-internalid="COMPANY_POLICY" data-target="COMPANYPOLICIES" class="item tab_item">Company Policy</a>
-        <a class="item tab_item">Group Admin</a>
-        <a class="item tab_item">HR Function</a>
-        <a class="item tab_item">Leave</a>
-        <a class="item tab_item">Merits</a>
-        <a class="item tab_item">Claims</a>
-        <a class="item tab_item">Travel Log</a>
-        <a class="item tab_item">Products</a>
-    </div>
-    <!--End Navbar -->
-    <div id="main_page_content" style="float: left; margin-top: -15px; min-width: 814px; min-height: 695px;">
-        <!--HR-Track Logo-->
-        <img src="../../app/assets/Images/HomePage-Logo.png" style="top: 0; position: absolute; z-index: -1; margin-top: 72px;">
-        <!--Navigation Cards-->
-        <div class="ui three column doubling stackable grid container">
+    <div class="ui attached stackable menu">
+        <div class="ui container">
+            <img class="ui avatar image" src="../assets/images/icon.jpg" style="width: 7em; margin-top: 5px;">
+            <a class="item tab_item" data-internalid="GROUP_POLICY" data-target="GROUPPOLICIES">
+                <i class="home icon"></i> Group Policy
+            </a>
+            <a class="item tab_item" data-internalid="COMPANY_POLICY" data-target="COMPANYPOLICIES">
+                <i class="grid layout icon"></i> Company Policy
+            </a>
+            <a class="item">
+                <i class="mail icon"></i> Messages
+            </a>
+            <div class="ui simple dropdown item">
+                More
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <a class="item"><i class="edit icon"></i> Edit Profile</a>
+                    <a class="item"><i class="globe icon"></i> Choose Language</a>
+                    <a class="item"><i class="settings icon"></i> Account Settings</a>
+                </div>
+            </div>
         </div>
-        <!--Navigation Cards end -->
+    </div>
+    <div id="main_page_content" class="ui">
+    </div>
 </body>
 
 </html>

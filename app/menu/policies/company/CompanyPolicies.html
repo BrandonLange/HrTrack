@@ -3,50 +3,70 @@
 
 <head>
     <title>Company Policies</title>
+    <style type="text/css">
+    .operation_button_holder {
+        margin-top: 5px;
+    }
+    </style>
+    <script src="policies/company/CompanyPolicies.js"></script>
 </head>
 
 <body>
-    <h1 style="text-align: center;">Company Policy Maintenance</h1>
+    <div class="ui four column stackable grid">
+        <div class="one wide column">
+        </div>
+        <div class="four wide column operation_button_holder">
+            <button id="btn_add_company_policy" class="ui primary button">Add Item</button>
+            <button class="ui primary button">
+                <</button>
+                    <button class="ui primary button">></button>
+                    <button class="ui primary button">Up</button>
+                    <button class="ui primary button">Down</button>
+                    <button class="ui primary button">Delete</button>
+        </div>
+        <div class="seven wide column">
+        </div>
+        <div class="four wide column operation_button_holder">
+            <button class="ui green button">Adopt Company Policy</button>
+            <button class="ui green button">Suggest Policy Ammendment</button>
+        </div>
+    </div>
     <hr width="100%">
-    <button class="ui blue button">Add Item</button>
-    <button class="ui blue button">
-        <</button>
-            <button class="ui blue button" id="addItem">></button>
-            <button class="ui blue button">Up</button>
-            <button class="ui blue button">Down</button>
-            <button class="ui blue button">Delete</button>
-            <button class="ui green button" style="float: right;">Suggest Ammendment</button>
-            <button class="ui green button" style="float: right;">Adopt Policy</button>
-            <hr width="100%">
-            <div class="ui vertical menu" style="margin-left: 10%; width: 80%;">
-                <a class="item">Visit Google</a>
-                <a class="item">Javascript Link</a>
-                <a class="item">New Link</a>
-                <a class="item">New Link</a>
-                <a class="item">New Link</a>
-                <a class="item">New Link</a>
-                <a class="item">New Link</a>
-                <a class="item">New Link</a>
-                <a class="item">New Link</a>
-            </div>
-            <div class="ui modal">
-                <div class="header">Header</div>
-                <div class="content">
-                    <p></p>
+    <div class="container ui">
+        <div class="ui list_item_grid">
+            <div class="top attached ui mini segment">Segment 1</div>
+            <div class="top attached ui mini segment">Segment 1</div>
+            <div class="top attached ui mini segment">Segment 1</div>
+            <div class="top attached ui mini segment">Segment 1</div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="ui modal">
+        <div class="header">Add Company Policy</div>
+        <div class="content">
+            <form class="ui form segment">
+                <div class="field">
+                    <label>Policy Name</label>
+                    <div class="ui small input">
+                        <input type="text" name="validation_company_policy_name">
+                    </div>
                 </div>
-                <div class="actions">
-                    <div class="ui approve button">Approve</div>
-                    <div class="ui button">Neutral</div>
-                    <div class="ui cancel button">Cancel</div>
+                <div class="field">
+                    <label>Policy Description</label>
+                    <div class="ui small input">
+                        <input type="text" name="validation_company_policy_description">
+                    </div>
                 </div>
+                <div class="ui error message">
+                </div>
+            </form>
+        </div>
+        <div class="actions">
+            <div class="ui black deny button">Cancel</div>
+            <div id="btn_submit" class="ui positive right labeled icon button">Add<i class="checkmark icon"></i>
             </div>
-            <script type="text/javascript">
-            $(document).ready(function() {
-                $("#addItem").on("click", function() {
-                    $('.ui.modal').modal('show');
-                })
-            })
-            </script>
+        </div>
+    </div>
 </body>
 
 </html>
