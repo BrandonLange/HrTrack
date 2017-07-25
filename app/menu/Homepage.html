@@ -1,44 +1,55 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="../../node_modules/semantic-ui/dist/semantic.css">
-    <script>
+  <link rel="stylesheet" type="text/css" href="../../node_modules/semantic-ui/dist/semantic.css">
+  <script>
     if (typeof module === 'object') {
-        window.module = module;
-        module = undefined;
+      window.module = module;
+      module = undefined;
     }
-    </script>
-    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="../../node_modules/semantic-ui/dist/semantic.min.js"></script>
-    <script src="Homepage.js"></script>
+  </script>
+  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../../node_modules/semantic-ui/dist/semantic.min.js"></script>
+  <script src="Homepage.js"></script>
 </head>
 
-<body style="overflow: hidden;">
-    <div class="ui attached stackable menu">
-        <div class="ui container">
-            <img class="ui avatar image" src="../assets/images/icon.jpg" style="width: 7em; margin-top: 5px;">
-            <a class="item tab_item" data-internalid="GROUP_POLICY" data-target="GROUPPOLICIES">
+<body style="overflow: visible;">
+  <div class="ui pointing massive menu" id='Main_Menu'>
+    <img class="ui avatar image" src="../assets/images/icon.jpg" style="width: 13em; height: 4em;">
+    <a class="item active tab_item" data-internalid="HOME" data-target="HOME">
+              <i class="mail icon"></i> Home
+          </a>
+    <a class="item tab_item" data-internalid="GROUP_POLICY" data-target="GROUPPOLICIES">
+              <i class="home icon"></i> Group Policy
+          </a>
+    <a class="item tab_item" data-internalid="COMPANY_POLICY" data-target="COMPANYPOLICIES">
+                    <i class="grid layout icon"></i> Company Policy
+                </a>
+    <div class="ui simple dropdown item">
+      More
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        <a class="item"><i class="edit icon"></i> Edit Profile</a>
+        <a class="item"><i class="globe icon"></i> Choose Language</a>
+        <a class="item"><i class="settings icon"></i> Account Settings</a>
+      </div>
+    </div>
+    <div class="right menu">
+      <a class='item' id='btn_logout'>Logout</a>
+    </div>
+  </div>
+  <!-- <div class="ui attached stackable pointing menu">
+    <div class="ui container">
+      <a class="item tab_item" data-internalid="GROUP_POLICY" data-target="GROUPPOLICIES">
                 <i class="home icon"></i> Group Policy
             </a>
-            <a class="item tab_item" data-internalid="COMPANY_POLICY" data-target="COMPANYPOLICIES">
+      <a class="item tab_item" data-internalid="COMPANY_POLICY" data-target="COMPANYPOLICIES">
                 <i class="grid layout icon"></i> Company Policy
             </a>
-            <a class="item">
-                <i class="mail icon"></i> Messages
-            </a>
-            <div class="ui simple dropdown item">
-                More
-                <i class="dropdown icon"></i>
-                <div class="menu">
-                    <a class="item"><i class="edit icon"></i> Edit Profile</a>
-                    <a class="item"><i class="globe icon"></i> Choose Language</a>
-                    <a class="item"><i class="settings icon"></i> Account Settings</a>
-                </div>
-            </div>
-        </div>
     </div>
-    <div id="main_page_content" class="ui">
-    </div>
+  </div> -->
+  <div id="main_page_content" class="ui" style='width:100%; height: 100%;'>
+  </div>
 </body>
 
 </html>
