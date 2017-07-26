@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/BrandonLange/HrTrack#readme",
   "devDependencies": {
+    "bootstrap": "^3.3.7",
     "electron": "^1.6.11",
     "jquery": "^3.2.1",
     "jquery-ui": "^1.12.1",
