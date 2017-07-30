@@ -1,0 +1,14 @@
+c:\users\brandon\documents\visual studio 2017\Projects\ClassLibrary1\HrTrackService\bin\Debug\HrTrackService.dll
+c:\users\brandon\documents\visual studio 2017\Projects\ClassLibrary1\HrTrackService\bin\Debug\HrTrackService.pdb
+c:\users\brandon\documents\visual studio 2017\Projects\ClassLibrary1\HrTrackService\bin\Debug\HrTrackServiceContracts.dll
+c:\users\brandon\documents\visual studio 2017\Projects\ClassLibrary1\HrTrackService\bin\Debug\HrTrackServiceContracts.pdb
+c:\users\brandon\documents\visual studio 2017\Projects\ClassLibrary1\HrTrackService\obj\Debug\HrTrackService.csprojResolveAssemblyReference.cache
+c:\users\brandon\documents\visual studio 2017\Projects\ClassLibrary1\HrTrackService\obj\Debug\HrTrackService.dll
+c:\users\brandon\documents\visual studio 2017\Projects\ClassLibrary1\HrTrackService\obj\Debug\HrTrackService.pdb
+C:\Users\Brandon\Documents\Visual Studio 2017\Projects\ClassLibrary1\HrTrackService\bin\Debug\AutoMapper.dll
+C:\Users\Brandon\Documents\Visual Studio 2017\Projects\ClassLibrary1\HrTrackService\bin\Debug\DataModels.dll
+C:\Users\Brandon\Documents\Visual Studio 2017\Projects\ClassLibrary1\HrTrackService\bin\Debug\EntityFramework.dll
+C:\Users\Brandon\Documents\Visual Studio 2017\Projects\ClassLibrary1\HrTrackService\bin\Debug\DataModels.pdb
+C:\Users\Brandon\Documents\Visual Studio 2017\Projects\ClassLibrary1\HrTrackService\bin\Debug\DataModels.dll.config
+C:\Users\Brandon\Documents\Visual Studio 2017\Projects\ClassLibrary1\HrTrackService\bin\Debug\AutoMapper.xml
+C:\Users\Brandon\Documents\Visual Studio 2017\Projects\ClassLibrary1\HrTrackService\bin\Debug\EntityFramework.xml

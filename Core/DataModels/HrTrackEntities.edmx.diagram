@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5d7483994e8f468ca403ea13918a0d33" Name="Diagram1">
+        <EntityTypeShape EntityType="HrTrackEntities.ActivityAssignees" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.ActivitySheets" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.Approvals" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.BankCards" Width="1.5" PointX="12.75" PointY="43.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.Claims" Width="1.5" PointX="9.75" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.Company" Width="1.5" PointX="3" PointY="49.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.CompanyGroup" Width="1.5" PointX="0.75" PointY="56.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.CompanyPolicies" Width="1.5" PointX="5.25" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.Department" Width="1.5" PointX="5.25" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.Documents" Width="1.5" PointX="5.25" PointY="33.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.Duties" Width="1.5" PointX="10.5" PointY="56.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.EmploymentType" Width="1.5" PointX="5.25" PointY="52.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.GroupPolicies" Width="1.5" PointX="3" PointY="82.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.GroupSkillset" Width="1.5" PointX="5.25" PointY="88.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.GroupSkillsetGroups" Width="1.5" PointX="3" PointY="88.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.KPIIncident" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.KPIInstance" Width="1.5" PointX="5.25" PointY="57.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.KPILinks" Width="1.5" PointX="7.5" PointY="62" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.KPIQuestion" Width="1.5" PointX="5.25" PointY="46.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.KPIQuestionGroup" Width="1.5" PointX="5.25" PointY="61.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.KPIQuestionGroupLink" Width="1.5" PointX="7.5" PointY="67.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.KPIQuestionnaire" Width="1.5" PointX="7.5" PointY="64.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.KPIRater" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.KPIRating" Width="1.5" PointX="9.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.Leave" Width="1.5" PointX="12.75" PointY="60.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.LeaveBlockDates" Width="1.5" PointX="5.25" PointY="65.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.LeaveType" Width="1.5" PointX="5.25" PointY="69.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.Licences" Width="1.5" PointX="12.75" PointY="47.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.LicenceTypes" Width="1.5" PointX="10.5" PointY="37.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.Merit" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.MeritType" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.MobileDevices" Width="1.5" PointX="7.5" PointY="41.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.OverTime" Width="1.5" PointX="12.75" PointY="64.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.OvertimeTypes" Width="1.5" PointX="5.25" PointY="73.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.Position" Width="1.5" PointX="10.5" PointY="40.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.PositionApprovers" Width="1.5" PointX="12.75" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.PositionDuties" Width="1.5" PointX="15.75" PointY="48.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.ProductDocumentation" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.Products" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.ProductVersions" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.SecurityRoles" Width="1.5" PointX="5.25" PointY="76.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.SerialLicence" Width="1.5" PointX="12.75" PointY="39.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.SkillSet" Width="1.5" PointX="7.5" PointY="84.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.SkillsetGroups" Width="1.5" PointX="5.25" PointY="81.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.SkillsMatrix" Width="1.5" PointX="15.75" PointY="52.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.Staff" Width="1.5" PointX="7.5" PointY="46.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.StaffEmpEvents" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.StaffLanguage" Width="1.5" PointX="9.75" PointY="62" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.StaffPositionHist" Width="1.5" PointX="9.75" PointY="65.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.StaffRemunirationHist" Width="1.5" PointX="9.75" PointY="68.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.SupportDocumentation" Width="1.5" PointX="4.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.SupportRoles" Width="1.5" PointX="9.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.sysdiagrams" Width="1.5" PointX="6.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.SystemNotice" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.TeamMembers" Width="1.5" PointX="12.75" PointY="68.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.Teams" Width="1.5" PointX="5.25" PointY="84.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.TravelLog" Width="1.5" PointX="13" PointY="52.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.Vehichles" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HrTrackEntities.Visas" Width="1.5" PointX="9.75" PointY="51.875" IsExpanded="true" />
+        <AssociationConnector Association="HrTrackEntities.FK_BankCards_Documents" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_BankCards_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_Claims_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_TravelLog_Claims" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_Company_CompanyGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_CompanyPolicies_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_Department_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_Documents_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_Duties_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_EmploymentType_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_KPIInstance_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_KPIQuestionGroup_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_LeaveBlockDates_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_LeaveBlockDates_Company1" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_LeaveType_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_LeaveType_Company1" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_OvertimeTypes_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_OvertimeTypes_Company1" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_Position_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_SecurityRoles_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_SkillsetGroups_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_Teams_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_GroupPolicies_CompanyGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_GroupSkillsetGroups_CompanyGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_Position_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_Licences_Documents" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_MobileDevices_Documents" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_SerialLicence_Documents" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_Visas_Documents" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_Duties_KPIQuestionGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_PositionDuties_Duties" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_Staff_EmploymentType" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_GroupSkillset_GroupSkillsetGroups" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_SkillSet_GroupSkillset" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_KPIQuestionnaire_KPIInstance" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_KPILinks_KPIQuestionGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_KPIQuestionGroupLink_KPIQuestion" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_KPIQuestionGroupLink_KPIQuestionGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_KPIQuestionnaire_KPIQuestionGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_Leave_LeaveType" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_Leave_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_Licences_LicenceTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_Licences_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_Merit_MeritType" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_OverTime_OvertimeTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_OverTime_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_PositionApprovers_Position" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_PositionDuties_Position" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_ProductDocumentation_ProductVersions" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_ProductVersions_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_SerialLicence_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_SkillSet_SkillsetGroups" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_SkillsMatrix_SkillSet" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_SkillsMatrix_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_StaffLanguage_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_StaffPositionHist_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_StaffPositionHist_Staff1" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_StaffRemunirationHist_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_StaffRemunirationHist_Staff1" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_TeamMembers_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_TravelLog_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_Visas_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="HrTrackEntities.FK_TeamMembers_Teams" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

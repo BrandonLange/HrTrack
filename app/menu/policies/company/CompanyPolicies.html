@@ -7,6 +7,28 @@
     .operation_button_holder {
         margin-top: 5px;
     }
+
+    .active {
+        background: #2185D0!important;
+        color: white;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .company-policy-list-item {
+        background: #2525d8!important;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .child-company-policy-list-item {
+        background: white!important;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+    }
     </style>
     <script src="policies/company/CompanyPolicies.js"></script>
 </head>
@@ -15,7 +37,7 @@
     <div class="ui four column stackable grid">
         <div class="one wide column">
         </div>
-        <div class="four wide column operation_button_holder">
+        <div class="five wide column operation_button_holder">
             <button id="btn_add_company_policy" class="ui primary button">Add Item</button>
             <button class="ui primary button">
                 <</button>
@@ -24,7 +46,7 @@
                     <button class="ui primary button">Down</button>
                     <button class="ui primary button">Delete</button>
         </div>
-        <div class="seven wide column">
+        <div class="six wide column">
         </div>
         <div class="four wide column operation_button_holder">
             <button class="ui green button">Adopt Company Policy</button>
@@ -33,11 +55,11 @@
     </div>
     <hr width="100%">
     <div class="container ui">
-        <div class="ui list_item_grid">
-            <div class="top attached ui mini segment">Segment 1</div>
-            <div class="top attached ui mini segment">Segment 1</div>
-            <div class="top attached ui mini segment">Segment 1</div>
-            <div class="top attached ui mini segment">Segment 1</div>
+        <div class="ui list_item_grid" id="GroupPolicyItemHolder">
+        </div>
+    </div>
+    <div class="container ui">
+        <div class="column" id="GroupPolicyItemHolder">
         </div>
     </div>
     <!-- Modal -->
@@ -48,13 +70,13 @@
                 <div class="field">
                     <label>Policy Name</label>
                     <div class="ui small input">
-                        <input type="text" name="validation_company_policy_name">
+                        <input type="text" name="validation_company_policy_name" id="validation_company_policy_name">
                     </div>
                 </div>
                 <div class="field">
                     <label>Policy Description</label>
                     <div class="ui small input">
-                        <input type="text" name="validation_company_policy_description">
+                        <input type="text" name="validation_company_policy_description" id="validation_company_policy_description">
                     </div>
                 </div>
                 <div class="ui error message">

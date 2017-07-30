@@ -1,0 +1,1993 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HrTrackEntities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ActivityAssignees">
+    <Key>
+      <PropertyRef Name="ActivityAssigneeID" />
+    </Key>
+    <Property Name="ActivityAssigneeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActivitySheetID" Type="Int32" />
+    <Property Name="StaffID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ActivitySheets">
+    <Key>
+      <PropertyRef Name="ActivitySheetID" />
+    </Key>
+    <Property Name="ActivitySheetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffID" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="DueDate" Type="DateTime" Precision="0" />
+    <Property Name="CompleteDate" Type="DateTime" Precision="0" />
+    <Property Name="TaskModule" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="4096" FixedLength="false" Unicode="false" />
+    <Property Name="Dependencies" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Approvals">
+    <Key>
+      <PropertyRef Name="ApprovalID" />
+    </Key>
+    <Property Name="ApprovalID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemType" Type="Int32" />
+    <Property Name="ItemID" Type="Int32" />
+    <Property Name="OverallStatus" Type="Int32" />
+    <Property Name="L1ApprovalStatus" Type="Int32" />
+    <Property Name="L1ApprovalStaffID" Type="Int32" />
+    <Property Name="L1ApproveDateTime" Type="DateTime" Precision="3" />
+    <Property Name="L1Notes" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="L2ApprovalStatus" Type="Int32" />
+    <Property Name="L2ApprovalStaffID" Type="Int32" />
+    <Property Name="L2ApproveDateTime" Type="DateTime" Precision="3" />
+    <Property Name="L2Notes" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BankCards">
+    <Key>
+      <PropertyRef Name="BankCardID" />
+    </Key>
+    <Property Name="BankCardID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffID" Type="Int32" />
+    <Property Name="CardType" Type="Int32" />
+    <Property Name="Bank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CardNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ExpDate" Type="DateTime" Precision="0" />
+    <Property Name="DocumentID" Type="Int32" />
+    <NavigationProperty Name="Documents" Relationship="Self.FK_BankCards_Documents" FromRole="BankCards" ToRole="Documents" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK_BankCards_Staff" FromRole="BankCards" ToRole="Staff" />
+  </EntityType>
+  <EntityType Name="Claims">
+    <Key>
+      <PropertyRef Name="ClaimID" />
+    </Key>
+    <Property Name="ClaimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffID" Type="Int32" />
+    <Property Name="TravelLogID" Type="Int32" />
+    <Property Name="ClaimDate" Type="DateTime" Precision="0" />
+    <Property Name="ClaimType" Type="Int32" />
+    <Property Name="CashClaim" Type="Boolean" />
+    <Property Name="BankCardID" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="StartingOdo" Type="Int32" />
+    <Property Name="Km" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK_Claims_Staff" FromRole="Claims" ToRole="Staff" />
+    <NavigationProperty Name="TravelLog" Relationship="Self.FK_TravelLog_Claims" FromRole="Claims" ToRole="TravelLog" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Name="CompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyGUID" Type="Guid" Nullable="false" />
+    <Property Name="CompanyGroupID" Type="Int32" />
+    <Property Name="CountryISO" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="DefaultCurrencyISO" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PhysicalAddress1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhysicalAddress2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhysicalAddress3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhysicalAddress4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BillingAddress1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BillingAddress2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BillingAddress3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BillingAddress4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TravelRefundPerKm" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="OvertimePolicyID" Type="Int32" />
+    <Property Name="ClaimsPolicyID" Type="Int32" />
+    <Property Name="TravelPolicyID" Type="Int32" />
+    <Property Name="MobileDevPolicyID" Type="Int32" />
+    <Property Name="BankcardPolicyID" Type="Int32" />
+    <Property Name="EquipmentPolicyID" Type="Int32" />
+    <Property Name="PubHolidayMonIfSunRule" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CompanyGroup" Relationship="Self.FK_Company_CompanyGroup" FromRole="Company" ToRole="CompanyGroup" />
+    <NavigationProperty Name="CompanyPolicies" Relationship="Self.FK_CompanyPolicies_Company" FromRole="Company" ToRole="CompanyPolicies" />
+    <NavigationProperty Name="Department" Relationship="Self.FK_Department_Company" FromRole="Company" ToRole="Department" />
+    <NavigationProperty Name="Documents" Relationship="Self.FK_Documents_Company" FromRole="Company" ToRole="Documents" />
+    <NavigationProperty Name="Duties" Relationship="Self.FK_Duties_Company" FromRole="Company" ToRole="Duties" />
+    <NavigationProperty Name="EmploymentType" Relationship="Self.FK_EmploymentType_Company" FromRole="Company" ToRole="EmploymentType" />
+    <NavigationProperty Name="KPIInstance" Relationship="Self.FK_KPIInstance_Company" FromRole="Company" ToRole="KPIInstance" />
+    <NavigationProperty Name="KPIQuestionGroup" Relationship="Self.FK_KPIQuestionGroup_Company" FromRole="Company" ToRole="KPIQuestionGroup" />
+    <NavigationProperty Name="LeaveBlockDates" Relationship="Self.FK_LeaveBlockDates_Company" FromRole="Company" ToRole="LeaveBlockDates" />
+    <NavigationProperty Name="LeaveBlockDates1" Relationship="Self.FK_LeaveBlockDates_Company1" FromRole="Company" ToRole="LeaveBlockDates" />
+    <NavigationProperty Name="LeaveType" Relationship="Self.FK_LeaveType_Company" FromRole="Company" ToRole="LeaveType" />
+    <NavigationProperty Name="LeaveType1" Relationship="Self.FK_LeaveType_Company1" FromRole="Company" ToRole="LeaveType" />
+    <NavigationProperty Name="OvertimeTypes" Relationship="Self.FK_OvertimeTypes_Company" FromRole="Company" ToRole="OvertimeTypes" />
+    <NavigationProperty Name="OvertimeTypes1" Relationship="Self.FK_OvertimeTypes_Company1" FromRole="Company" ToRole="OvertimeTypes" />
+    <NavigationProperty Name="Position" Relationship="Self.FK_Position_Company" FromRole="Company" ToRole="Position" />
+    <NavigationProperty Name="SecurityRoles" Relationship="Self.FK_SecurityRoles_Company" FromRole="Company" ToRole="SecurityRoles" />
+    <NavigationProperty Name="SkillsetGroups" Relationship="Self.FK_SkillsetGroups_Company" FromRole="Company" ToRole="SkillsetGroups" />
+    <NavigationProperty Name="Teams" Relationship="Self.FK_Teams_Company" FromRole="Company" ToRole="Teams" />
+  </EntityType>
+  <EntityType Name="CompanyGroup">
+    <Key>
+      <PropertyRef Name="CompanyGroupID" />
+    </Key>
+    <Property Name="CompanyGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupGUID" Type="Guid" Nullable="false" />
+    <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Company" Relationship="Self.FK_Company_CompanyGroup" FromRole="CompanyGroup" ToRole="Company" />
+    <NavigationProperty Name="GroupPolicies" Relationship="Self.FK_GroupPolicies_CompanyGroup" FromRole="CompanyGroup" ToRole="GroupPolicies" />
+    <NavigationProperty Name="GroupSkillsetGroups" Relationship="Self.FK_GroupSkillsetGroups_CompanyGroup" FromRole="CompanyGroup" ToRole="GroupSkillsetGroups" />
+  </EntityType>
+  <EntityType Name="CompanyPolicies">
+    <Key>
+      <PropertyRef Name="CompanyPoliciesID" />
+    </Key>
+    <Property Name="CompanyPoliciesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="PolicyLevel" Type="Int32" />
+    <Property Name="ParentID" Type="Int32" />
+    <Property Name="Rank" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Policy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DocumentRef" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DocumentID" Type="Int32" />
+    <Property Name="ValidFrom" Type="DateTime" Precision="0" />
+    <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdatedBy" Type="Int32" />
+    <Property Name="Cancelled" Type="Boolean" />
+    <Property Name="CancelledDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Company" Relationship="Self.FK_CompanyPolicies_Company" FromRole="CompanyPolicies" ToRole="Company" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="DepartmentID" />
+    </Key>
+    <Property Name="DepartmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="DepartmentDesc" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DeptColor" Type="Int32" />
+    <NavigationProperty Name="Company" Relationship="Self.FK_Department_Company" FromRole="Department" ToRole="Company" />
+    <NavigationProperty Name="Position" Relationship="Self.FK_Position_Department" FromRole="Department" ToRole="Position" />
+  </EntityType>
+  <EntityType Name="Documents">
+    <Key>
+      <PropertyRef Name="DocumentID" />
+    </Key>
+    <Property Name="DocumentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="DocumentType" Type="Int32" Nullable="false" />
+    <Property Name="DocumentDate" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Doc" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="BankCards" Relationship="Self.FK_BankCards_Documents" FromRole="Documents" ToRole="BankCards" />
+    <NavigationProperty Name="Company" Relationship="Self.FK_Documents_Company" FromRole="Documents" ToRole="Company" />
+    <NavigationProperty Name="Licences" Relationship="Self.FK_Licences_Documents" FromRole="Documents" ToRole="Licences" />
+    <NavigationProperty Name="MobileDevices" Relationship="Self.FK_MobileDevices_Documents" FromRole="Documents" ToRole="MobileDevices" />
+    <NavigationProperty Name="SerialLicence" Relationship="Self.FK_SerialLicence_Documents" FromRole="Documents" ToRole="SerialLicence" />
+    <NavigationProperty Name="Visas" Relationship="Self.FK_Visas_Documents" FromRole="Documents" ToRole="Visas" />
+  </EntityType>
+  <EntityType Name="Duties">
+    <Key>
+      <PropertyRef Name="DutyID" />
+    </Key>
+    <Property Name="DutyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="DutyGroupID" Type="Int32" />
+    <Property Name="DutyName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="4096" FixedLength="false" Unicode="false" />
+    <Property Name="ParentID" Type="Int32" />
+    <Property Name="Rank" Type="Int32" />
+    <Property Name="TreeLevel" Type="Int32" />
+    <Property Name="Suggestion" Type="Boolean" />
+    <Property Name="SuggestionStaffID" Type="Int32" />
+    <Property Name="KPIQuestionGroupID" Type="Int32" />
+    <NavigationProperty Name="Company" Relationship="Self.FK_Duties_Company" FromRole="Duties" ToRole="Company" />
+    <NavigationProperty Name="KPIQuestionGroup" Relationship="Self.FK_Duties_KPIQuestionGroup" FromRole="Duties" ToRole="KPIQuestionGroup" />
+    <NavigationProperty Name="PositionDuties" Relationship="Self.FK_PositionDuties_Duties" FromRole="Duties" ToRole="PositionDuties" />
+  </EntityType>
+  <EntityType Name="EmploymentType">
+    <Key>
+      <PropertyRef Name="EmploymentTypeID" />
+    </Key>
+    <Property Name="EmploymentTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Company" Relationship="Self.FK_EmploymentType_Company" FromRole="EmploymentType" ToRole="Company" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK_Staff_EmploymentType" FromRole="EmploymentType" ToRole="Staff" />
+  </EntityType>
+  <EntityType Name="GroupPolicies">
+    <Key>
+      <PropertyRef Name="GroupPolicyID" />
+    </Key>
+    <Property Name="GroupPolicyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyGroupID" Type="Int32" Nullable="false" />
+    <Property Name="ParentID" Type="Int32" />
+    <Property Name="PolicyLevel" Type="Int32" />
+    <Property Name="Rank" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Policy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DocumentRef" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DocumentID" Type="Int32" />
+    <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdatedBy" Type="Int32" />
+    <Property Name="Deleted" Type="Boolean" />
+    <NavigationProperty Name="CompanyGroup" Relationship="Self.FK_GroupPolicies_CompanyGroup" FromRole="GroupPolicies" ToRole="CompanyGroup" />
+  </EntityType>
+  <EntityType Name="GroupSkillset">
+    <Key>
+      <PropertyRef Name="GroupSkillsetID" />
+    </Key>
+    <Property Name="GroupSkillsetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SkillsetGroupID" Type="Int32" Nullable="false" />
+    <Property Name="Skill" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SkillDesc" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+    <Property Name="Rank" Type="Int32" />
+    <NavigationProperty Name="GroupSkillsetGroups" Relationship="Self.FK_GroupSkillset_GroupSkillsetGroups" FromRole="GroupSkillset" ToRole="GroupSkillsetGroups" />
+    <NavigationProperty Name="SkillSet" Relationship="Self.FK_SkillSet_GroupSkillset" FromRole="GroupSkillset" ToRole="SkillSet" />
+  </EntityType>
+  <EntityType Name="GroupSkillsetGroups">
+    <Key>
+      <PropertyRef Name="SkillsetGroupID" />
+    </Key>
+    <Property Name="SkillsetGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyGroupID" Type="Int32" Nullable="false" />
+    <Property Name="GroupDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ParentID" Type="Int32" />
+    <Property Name="MeasureType" Type="Int32" />
+    <Property Name="Rank" Type="Int32" />
+    <NavigationProperty Name="CompanyGroup" Relationship="Self.FK_GroupSkillsetGroups_CompanyGroup" FromRole="GroupSkillsetGroups" ToRole="CompanyGroup" />
+    <NavigationProperty Name="GroupSkillset" Relationship="Self.FK_GroupSkillset_GroupSkillsetGroups" FromRole="GroupSkillsetGroups" ToRole="GroupSkillset" />
+  </EntityType>
+  <EntityType Name="KPIIncident">
+    <Key>
+      <PropertyRef Name="KPIIncidentID" />
+    </Key>
+    <Property Name="KPIIncidentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="KPIInstance">
+    <Key>
+      <PropertyRef Name="KPIInstanceID" />
+    </Key>
+    <Property Name="KPIInstanceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="InstanceDescription" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="OpenDate" Type="DateTime" Precision="0" />
+    <Property Name="CloseDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Company" Relationship="Self.FK_KPIInstance_Company" FromRole="KPIInstance" ToRole="Company" />
+    <NavigationProperty Name="KPIQuestionnaire" Relationship="Self.FK_KPIQuestionnaire_KPIInstance" FromRole="KPIInstance" ToRole="KPIQuestionnaire" />
+  </EntityType>
+  <EntityType Name="KPILinks">
+    <Key>
+      <PropertyRef Name="KPILinkID" />
+    </Key>
+    <Property Name="KPILinkID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemType" Type="Int32" Nullable="false" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="KPIQuestionGroup" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="KPIQuestionGroup1" Relationship="Self.FK_KPILinks_KPIQuestionGroup" FromRole="KPILinks" ToRole="KPIQuestionGroup" />
+  </EntityType>
+  <EntityType Name="KPIQuestion">
+    <Key>
+      <PropertyRef Name="KPIQuestionID" />
+    </Key>
+    <Property Name="KPIQuestionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="KPIQuestionGroupID" Type="Int32" />
+    <Property Name="KPIType" Type="Int32" />
+    <Property Name="KPIHeading" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="KPIDescription" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="MeasureType" Type="Int32" />
+    <Property Name="Option1Description" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Option1Weight" Type="Int32" />
+    <Property Name="Option2Description" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Option2Weight" Type="Int32" />
+    <Property Name="Option3Description" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Option3Weight" Type="Int32" />
+    <Property Name="Option4Description" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Option4Weight" Type="Int32" />
+    <Property Name="Option5Description" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Option5Weight" Type="Int32" />
+    <Property Name="Rank" Type="Int32" />
+    <NavigationProperty Name="KPIQuestionGroupLink" Relationship="Self.FK_KPIQuestionGroupLink_KPIQuestion" FromRole="KPIQuestion" ToRole="KPIQuestionGroupLink" />
+  </EntityType>
+  <EntityType Name="KPIQuestionGroup">
+    <Key>
+      <PropertyRef Name="KPIQuestionGroupID" />
+    </Key>
+    <Property Name="KPIQuestionGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="GroupName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ParentID" Type="Int32" />
+    <Property Name="Rank" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Company" Relationship="Self.FK_KPIQuestionGroup_Company" FromRole="KPIQuestionGroup" ToRole="Company" />
+    <NavigationProperty Name="Duties" Relationship="Self.FK_Duties_KPIQuestionGroup" FromRole="KPIQuestionGroup" ToRole="Duties" />
+    <NavigationProperty Name="KPILinks" Relationship="Self.FK_KPILinks_KPIQuestionGroup" FromRole="KPIQuestionGroup" ToRole="KPILinks" />
+    <NavigationProperty Name="KPIQuestionGroupLink" Relationship="Self.FK_KPIQuestionGroupLink_KPIQuestionGroup" FromRole="KPIQuestionGroup" ToRole="KPIQuestionGroupLink" />
+    <NavigationProperty Name="KPIQuestionnaire" Relationship="Self.FK_KPIQuestionnaire_KPIQuestionGroup" FromRole="KPIQuestionGroup" ToRole="KPIQuestionnaire" />
+  </EntityType>
+  <EntityType Name="KPIQuestionGroupLink">
+    <Key>
+      <PropertyRef Name="KPIQuestionGroupLinkID" />
+    </Key>
+    <Property Name="KPIQuestionGroupLinkID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KPIQuestionGroupID" Type="Int32" Nullable="false" />
+    <Property Name="KPIQuestionID" Type="Int32" Nullable="false" />
+    <Property Name="Rank" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="KPIQuestion" Relationship="Self.FK_KPIQuestionGroupLink_KPIQuestion" FromRole="KPIQuestionGroupLink" ToRole="KPIQuestion" />
+    <NavigationProperty Name="KPIQuestionGroup" Relationship="Self.FK_KPIQuestionGroupLink_KPIQuestionGroup" FromRole="KPIQuestionGroupLink" ToRole="KPIQuestionGroup" />
+  </EntityType>
+  <EntityType Name="KPIQuestionnaire">
+    <Key>
+      <PropertyRef Name="KPIQuestionnaireID" />
+    </Key>
+    <Property Name="KPIQuestionnaireID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KPIInstanceID" Type="Int32" />
+    <Property Name="KPIQuestionGroupID" Type="Int32" />
+    <Property Name="Sequence" Type="Int32" />
+    <Property Name="WeightPerc" Type="Int32" />
+    <NavigationProperty Name="KPIInstance" Relationship="Self.FK_KPIQuestionnaire_KPIInstance" FromRole="KPIQuestionnaire" ToRole="KPIInstance" />
+    <NavigationProperty Name="KPIQuestionGroup" Relationship="Self.FK_KPIQuestionnaire_KPIQuestionGroup" FromRole="KPIQuestionnaire" ToRole="KPIQuestionGroup" />
+  </EntityType>
+  <EntityType Name="KPIRater">
+    <Key>
+      <PropertyRef Name="KPIRaterID" />
+    </Key>
+    <Property Name="KPIRaterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KPIInstanceID" Type="Int32" />
+    <Property Name="StaffID" Type="Int32" />
+    <Property Name="RaterID" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="KPIRating">
+    <Key>
+      <PropertyRef Name="KPIRatingID" />
+    </Key>
+    <Property Name="KPIRatingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KPIRaterID" Type="Int32" />
+    <Property Name="KPIQuestionnaireID" Type="Int32" />
+    <Property Name="OptionNo" Type="Int32" />
+    <Property Name="OptionWeight" Type="Int32" />
+    <Property Name="AdjWeight" Type="Decimal" Precision="3" Scale="2" />
+  </EntityType>
+  <EntityType Name="Leave">
+    <Key>
+      <PropertyRef Name="LeaveID" />
+    </Key>
+    <Property Name="LeaveID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffID" Type="Int32" />
+    <Property Name="LeaveTypeID" Type="Int32" />
+    <Property Name="FromDate" Type="DateTime" Precision="0" />
+    <Property Name="ToDate" Type="DateTime" Precision="0" />
+    <Property Name="Emergency" Type="Boolean" />
+    <Property Name="HalfDay" Type="Boolean" />
+    <Property Name="Description" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="LeaveType" Relationship="Self.FK_Leave_LeaveType" FromRole="Leave" ToRole="LeaveType" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK_Leave_Staff" FromRole="Leave" ToRole="Staff" />
+  </EntityType>
+  <EntityType Name="LeaveBlockDates">
+    <Key>
+      <PropertyRef Name="LeaveBlockDateID" />
+    </Key>
+    <Property Name="LeaveBlockDateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="BlockType" Type="Int32" />
+    <Property Name="LinkType" Type="Int32" />
+    <Property Name="LinkID" Type="Int32" />
+    <Property Name="FromDate" Type="DateTime" Precision="0" />
+    <Property Name="ToDate" Type="DateTime" Precision="0" />
+    <Property Name="Reason" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="StaffID" Type="Int32" />
+    <NavigationProperty Name="Company" Relationship="Self.FK_LeaveBlockDates_Company" FromRole="LeaveBlockDates" ToRole="Company" />
+    <NavigationProperty Name="Company1" Relationship="Self.FK_LeaveBlockDates_Company1" FromRole="LeaveBlockDates" ToRole="Company" />
+  </EntityType>
+  <EntityType Name="LeaveType">
+    <Key>
+      <PropertyRef Name="LeaveTypeID" />
+    </Key>
+    <Property Name="LeaveTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Description" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PayPerc" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="EarnType" Type="Int32" />
+    <Property Name="EarnDays" Type="Decimal" Precision="3" Scale="2" />
+    <Property Name="MustApplyWorkingDaysBefore" Type="Int32" />
+    <Property Name="CarryOver" Type="Boolean" />
+    <Property Name="CarryOverCap" Type="Decimal" Precision="3" Scale="2" />
+    <Property Name="CompanyPoliciesID" Type="Int32" />
+    <NavigationProperty Name="Company" Relationship="Self.FK_LeaveType_Company" FromRole="LeaveType" ToRole="Company" />
+    <NavigationProperty Name="Company1" Relationship="Self.FK_LeaveType_Company1" FromRole="LeaveType" ToRole="Company" />
+    <NavigationProperty Name="Leave" Relationship="Self.FK_Leave_LeaveType" FromRole="LeaveType" ToRole="Leave" />
+  </EntityType>
+  <EntityType Name="Licences">
+    <Key>
+      <PropertyRef Name="LicenceID" />
+    </Key>
+    <Property Name="LicenceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffID" Type="Int32" />
+    <Property Name="LicenceTypeID" Type="Int32" />
+    <Property Name="CountryISO" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="ProvinceState" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="LicNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateIssued" Type="DateTime" Precision="3" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
+    <Property Name="DocumentID" Type="Int32" />
+    <NavigationProperty Name="Documents" Relationship="Self.FK_Licences_Documents" FromRole="Licences" ToRole="Documents" />
+    <NavigationProperty Name="LicenceTypes" Relationship="Self.FK_Licences_LicenceTypes" FromRole="Licences" ToRole="LicenceTypes" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK_Licences_Staff" FromRole="Licences" ToRole="Staff" />
+  </EntityType>
+  <EntityType Name="LicenceTypes">
+    <Key>
+      <PropertyRef Name="LicenceTypeID" />
+    </Key>
+    <Property Name="LicenceTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Licences" Relationship="Self.FK_Licences_LicenceTypes" FromRole="LicenceTypes" ToRole="Licences" />
+  </EntityType>
+  <EntityType Name="Merit">
+    <Key>
+      <PropertyRef Name="MeritID" />
+    </Key>
+    <Property Name="MeritID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffID" Type="Int32" />
+    <Property Name="NominationStaffID" Type="Int32" />
+    <Property Name="MeritTypeID" Type="Int32" />
+    <Property Name="EventDate" Type="DateTime" Precision="0" />
+    <Property Name="ActivePeriodDays" Type="Int32" />
+    <Property Name="TimeSpent" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Description" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="MeritPoints" Type="Int32" />
+    <NavigationProperty Name="MeritType" Relationship="Self.FK_Merit_MeritType" FromRole="Merit" ToRole="MeritType" />
+  </EntityType>
+  <EntityType Name="MeritType">
+    <Key>
+      <PropertyRef Name="MeritTypeID" />
+    </Key>
+    <Property Name="MeritTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Demerit" Type="Boolean" />
+    <Property Name="ActiveDays" Type="Int32" />
+    <Property Name="DefaultPoints" Type="Int32" />
+    <Property Name="CompanyPoliciesID" Type="Int32" />
+    <NavigationProperty Name="Merit" Relationship="Self.FK_Merit_MeritType" FromRole="MeritType" ToRole="Merit" />
+  </EntityType>
+  <EntityType Name="MobileDevices">
+    <Key>
+      <PropertyRef Name="MobileDevicesID" />
+    </Key>
+    <Property Name="MobileDevicesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="CountryISO" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="PUK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ContractCompany" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ContractExp" Type="DateTime" Precision="0" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="StaffID" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DocumentID" Type="Int32" />
+    <NavigationProperty Name="Documents" Relationship="Self.FK_MobileDevices_Documents" FromRole="MobileDevices" ToRole="Documents" />
+  </EntityType>
+  <EntityType Name="OverTime">
+    <Key>
+      <PropertyRef Name="OverTimeID" />
+    </Key>
+    <Property Name="OverTimeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OvertimeTypeID" Type="Int32" Nullable="false" />
+    <Property Name="RecDate" Type="DateTime" Precision="3" />
+    <Property Name="StaffID" Type="Int32" />
+    <Property Name="EventDate" Type="DateTime" Precision="0" />
+    <Property Name="FromTime" Type="DateTime" Precision="3" />
+    <Property Name="ToTime" Type="DateTime" Precision="3" />
+    <Property Name="Hours" Type="Decimal" Precision="2" Scale="2" />
+    <Property Name="Description" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="OvertimeTypes" Relationship="Self.FK_OverTime_OvertimeTypes" FromRole="OverTime" ToRole="OvertimeTypes" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK_OverTime_Staff" FromRole="OverTime" ToRole="Staff" />
+  </EntityType>
+  <EntityType Name="OvertimeTypes">
+    <Key>
+      <PropertyRef Name="OvertimeTypeID" />
+    </Key>
+    <Property Name="OvertimeTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="OvertimeDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OTRate" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Company" Relationship="Self.FK_OvertimeTypes_Company" FromRole="OvertimeTypes" ToRole="Company" />
+    <NavigationProperty Name="Company1" Relationship="Self.FK_OvertimeTypes_Company1" FromRole="OvertimeTypes" ToRole="Company" />
+    <NavigationProperty Name="OverTime" Relationship="Self.FK_OverTime_OvertimeTypes" FromRole="OvertimeTypes" ToRole="OverTime" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="PositionID" />
+    </Key>
+    <Property Name="PositionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="Director" Type="Boolean" Nullable="false" />
+    <Property Name="PositionColour" Type="Int32" />
+    <Property Name="DepartmentID" Type="Int32" Nullable="false" />
+    <Property Name="SecurityRoleID" Type="Int32" Nullable="false" />
+    <Property Name="CurrentStaffID" Type="Int32" />
+    <Property Name="PositionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PositionDescription" Type="String" MaxLength="4096" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PositionDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Redundant" Type="Boolean" Nullable="false" />
+    <Property Name="RedundantDate" Type="DateTime" Precision="0" />
+    <Property Name="RedundantReason" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+    <Property Name="ReportsToPrimaryPos" Type="Int32" />
+    <Property Name="ReportsToSecondaryPos" Type="Int32" />
+    <Property Name="KPIQuestionGroupID" Type="Int32" />
+    <NavigationProperty Name="Company" Relationship="Self.FK_Position_Company" FromRole="Position" ToRole="Company" />
+    <NavigationProperty Name="Department" Relationship="Self.FK_Position_Department" FromRole="Position" ToRole="Department" />
+    <NavigationProperty Name="PositionApprovers" Relationship="Self.FK_PositionApprovers_Position" FromRole="Position" ToRole="PositionApprovers" />
+    <NavigationProperty Name="PositionDuties" Relationship="Self.FK_PositionDuties_Position" FromRole="Position" ToRole="PositionDuties" />
+  </EntityType>
+  <EntityType Name="PositionApprovers">
+    <Key>
+      <PropertyRef Name="PositionApproversID" />
+    </Key>
+    <Property Name="PositionApproversID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PositionID" Type="Int32" />
+    <Property Name="ItemType" Type="Int32" />
+    <Property Name="ItemLevel" Type="Int32" />
+    <Property Name="L1ApproverPos1" Type="Int32" />
+    <Property Name="L1ApproverPos2" Type="Int32" />
+    <Property Name="L1ApproverPos3" Type="Int32" />
+    <Property Name="L1ApproverPos4" Type="Int32" />
+    <Property Name="L1ApproverPos5" Type="Int32" />
+    <Property Name="L2ApproverPos1" Type="Int32" />
+    <Property Name="L2ApproverPos2" Type="Int32" />
+    <Property Name="L2ApproverPos3" Type="Int32" />
+    <Property Name="L2ApproverPos4" Type="Int32" />
+    <Property Name="L2ApproverPos5" Type="Int32" />
+    <NavigationProperty Name="Position" Relationship="Self.FK_PositionApprovers_Position" FromRole="PositionApprovers" ToRole="Position" />
+  </EntityType>
+  <EntityType Name="PositionDuties">
+    <Key>
+      <PropertyRef Name="PositionDutyID" />
+    </Key>
+    <Property Name="PositionDutyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PositionID" Type="Int32" />
+    <Property Name="DutyID" Type="Int32" />
+    <Property Name="CreateDate" Type="Int32" />
+    <NavigationProperty Name="Duties" Relationship="Self.FK_PositionDuties_Duties" FromRole="PositionDuties" ToRole="Duties" />
+    <NavigationProperty Name="Position" Relationship="Self.FK_PositionDuties_Position" FromRole="PositionDuties" ToRole="Position" />
+  </EntityType>
+  <EntityType Name="ProductDocumentation">
+    <Key>
+      <PropertyRef Name="ProductDocumentationID" />
+    </Key>
+    <Property Name="ProductDocumentationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductVersionID" Type="Int32" Nullable="false" />
+    <Property Name="ReleaseDate" Type="Int32" Nullable="false" />
+    <Property Name="Link" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Doc" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="ProductVersions" Relationship="Self.FK_ProductDocumentation_ProductVersions" FromRole="ProductDocumentation" ToRole="ProductVersions" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="ProductVersions" Relationship="Self.FK_ProductVersions_Products" FromRole="Products" ToRole="ProductVersions" />
+  </EntityType>
+  <EntityType Name="ProductVersions">
+    <Key>
+      <PropertyRef Name="ProductVersionID" />
+    </Key>
+    <Property Name="ProductVersionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Version" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ReleaseDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="ProductDocumentation" Relationship="Self.FK_ProductDocumentation_ProductVersions" FromRole="ProductVersions" ToRole="ProductDocumentation" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_ProductVersions_Products" FromRole="ProductVersions" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="SecurityRoles">
+    <Key>
+      <PropertyRef Name="SecurityRoleID" />
+    </Key>
+    <Property Name="SecurityRoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="RoleDescription" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="GroupAdministrator" Type="Boolean" />
+    <Property Name="Administrator" Type="Boolean" />
+    <Property Name="GroupPolicyAdmin" Type="Boolean" />
+    <Property Name="PolicyAdmin" Type="Boolean" />
+    <Property Name="TeamManager" Type="Boolean" />
+    <Property Name="MeritApprove" Type="Boolean" />
+    <Property Name="LeaveApprove" Type="Boolean" />
+    <Property Name="OTApprove" Type="Boolean" />
+    <Property Name="TravelApprove" Type="Boolean" />
+    <Property Name="ClaimsApprove" Type="Boolean" />
+    <NavigationProperty Name="Company" Relationship="Self.FK_SecurityRoles_Company" FromRole="SecurityRoles" ToRole="Company" />
+  </EntityType>
+  <EntityType Name="SerialLicence">
+    <Key>
+      <PropertyRef Name="SerialLicenceID" />
+    </Key>
+    <Property Name="SerialLicenceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffID" Type="Int32" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="ItemDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Notes" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+    <Property Name="LicSer" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PurchaseDate" Type="DateTime" Precision="3" />
+    <Property Name="RefDocID" Type="Int32" />
+    <Property Name="Disposed" Type="Boolean" />
+    <Property Name="DisposalDate" Type="DateTime" Precision="0" />
+    <Property Name="DocumentID" Type="Int32" />
+    <NavigationProperty Name="Documents" Relationship="Self.FK_SerialLicence_Documents" FromRole="SerialLicence" ToRole="Documents" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK_SerialLicence_Staff" FromRole="SerialLicence" ToRole="Staff" />
+  </EntityType>
+  <EntityType Name="SkillSet">
+    <Key>
+      <PropertyRef Name="SkillsetID" />
+    </Key>
+    <Property Name="SkillsetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SkillsetGroupID" Type="Int32" Nullable="false" />
+    <Property Name="GroupSkillsetID" Type="Int32" />
+    <Property Name="Skill" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SkillDesc" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+    <Property Name="Rank" Type="Int32" />
+    <NavigationProperty Name="GroupSkillset" Relationship="Self.FK_SkillSet_GroupSkillset" FromRole="SkillSet" ToRole="GroupSkillset" />
+    <NavigationProperty Name="SkillsetGroups" Relationship="Self.FK_SkillSet_SkillsetGroups" FromRole="SkillSet" ToRole="SkillsetGroups" />
+    <NavigationProperty Name="SkillsMatrix" Relationship="Self.FK_SkillsMatrix_SkillSet" FromRole="SkillSet" ToRole="SkillsMatrix" />
+  </EntityType>
+  <EntityType Name="SkillsetGroups">
+    <Key>
+      <PropertyRef Name="SkillsetGroupID" />
+    </Key>
+    <Property Name="SkillsetGroupID" Type="Int32" Nullable="false" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="GroupDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ParentID" Type="Int32" />
+    <Property Name="MeasureType" Type="Int32" />
+    <Property Name="Rank" Type="Int32" />
+    <NavigationProperty Name="Company" Relationship="Self.FK_SkillsetGroups_Company" FromRole="SkillsetGroups" ToRole="Company" />
+    <NavigationProperty Name="SkillSet" Relationship="Self.FK_SkillSet_SkillsetGroups" FromRole="SkillsetGroups" ToRole="SkillSet" />
+  </EntityType>
+  <EntityType Name="SkillsMatrix">
+    <Key>
+      <PropertyRef Name="SkillsMatrixID" />
+    </Key>
+    <Property Name="SkillsMatrixID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffID" Type="Int32" />
+    <Property Name="SkillSetID" Type="Int32" />
+    <Property Name="Proficiency" Type="Int32" />
+    <NavigationProperty Name="SkillSet" Relationship="Self.FK_SkillsMatrix_SkillSet" FromRole="SkillsMatrix" ToRole="SkillSet" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK_SkillsMatrix_Staff" FromRole="SkillsMatrix" ToRole="Staff" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="StaffID" />
+    </Key>
+    <Property Name="StaffID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeRefNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SystemUserID" Type="Int32" />
+    <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Middlename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="KnownAs" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PictureDocID" Type="Int32" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="NationalityISO" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="IDNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="IDDoc" Type="Int32" />
+    <Property Name="PassportNo1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="PassportDoc1" Type="Int32" />
+    <Property Name="PassportNo2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="PassportDoc2" Type="Int32" />
+    <Property Name="EmploymentStart" Type="DateTime" Precision="0" />
+    <Property Name="EmploymentTypeID" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="EmpContractDocID" Type="Int32" />
+    <Property Name="EmploymentEnd" Type="Int32" />
+    <Property Name="HomeAddress1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HomeAddress2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HomeAddress3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HomeAddress4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PostalAddress1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PostalAddress2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PostalAddress3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PostalAddress4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WorkEmail1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WorkEmail2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WorkEmail3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PrivateEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneExtension" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PrivateMobileNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ContactMobileNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="HomeNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="EmergencyContact1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ECRelation1" Type="Int32" />
+    <Property Name="ECContactNumbers1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EmergencyContact2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ECRelation2" Type="Int32" />
+    <Property Name="ECContactNumbers2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BankAccount" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="BankName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="AccountType" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="BranchCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="BranchName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="LeaveOpeningBal" Type="Decimal" Precision="2" Scale="2" />
+    <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdateID" Type="Int32" />
+    <NavigationProperty Name="BankCards" Relationship="Self.FK_BankCards_Staff" FromRole="Staff" ToRole="BankCards" />
+    <NavigationProperty Name="Claims" Relationship="Self.FK_Claims_Staff" FromRole="Staff" ToRole="Claims" />
+    <NavigationProperty Name="EmploymentType" Relationship="Self.FK_Staff_EmploymentType" FromRole="Staff" ToRole="EmploymentType" />
+    <NavigationProperty Name="Leave" Relationship="Self.FK_Leave_Staff" FromRole="Staff" ToRole="Leave" />
+    <NavigationProperty Name="Licences" Relationship="Self.FK_Licences_Staff" FromRole="Staff" ToRole="Licences" />
+    <NavigationProperty Name="OverTime" Relationship="Self.FK_OverTime_Staff" FromRole="Staff" ToRole="OverTime" />
+    <NavigationProperty Name="SerialLicence" Relationship="Self.FK_SerialLicence_Staff" FromRole="Staff" ToRole="SerialLicence" />
+    <NavigationProperty Name="SkillsMatrix" Relationship="Self.FK_SkillsMatrix_Staff" FromRole="Staff" ToRole="SkillsMatrix" />
+    <NavigationProperty Name="StaffLanguage" Relationship="Self.FK_StaffLanguage_Staff" FromRole="Staff" ToRole="StaffLanguage" />
+    <NavigationProperty Name="StaffPositionHist" Relationship="Self.FK_StaffPositionHist_Staff" FromRole="Staff" ToRole="StaffPositionHist" />
+    <NavigationProperty Name="StaffPositionHist1" Relationship="Self.FK_StaffPositionHist_Staff1" FromRole="Staff" ToRole="StaffPositionHist" />
+    <NavigationProperty Name="StaffRemunirationHist" Relationship="Self.FK_StaffRemunirationHist_Staff" FromRole="Staff" ToRole="StaffRemunirationHist" />
+    <NavigationProperty Name="StaffRemunirationHist1" Relationship="Self.FK_StaffRemunirationHist_Staff1" FromRole="Staff" ToRole="StaffRemunirationHist" />
+    <NavigationProperty Name="TeamMembers" Relationship="Self.FK_TeamMembers_Staff" FromRole="Staff" ToRole="TeamMembers" />
+    <NavigationProperty Name="TravelLog" Relationship="Self.FK_TravelLog_Staff" FromRole="Staff" ToRole="TravelLog" />
+    <NavigationProperty Name="Visas" Relationship="Self.FK_Visas_Staff" FromRole="Staff" ToRole="Visas" />
+  </EntityType>
+  <EntityType Name="StaffEmpEvents">
+    <Key>
+      <PropertyRef Name="StaffEmpEventsID" />
+    </Key>
+    <Property Name="StaffEmpEventsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffID" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="StatusDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="NextStatus" Type="Int32" />
+    <Property Name="NextStatusDate" Type="DateTime" Precision="0" />
+    <Property Name="Notes" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="StaffLanguage">
+    <Key>
+      <PropertyRef Name="StaffLanguageID" />
+    </Key>
+    <Property Name="StaffLanguageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffID" Type="Int32" Nullable="false" />
+    <Property Name="LanguageISO" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="HomeLanguage" Type="Boolean" />
+    <Property Name="ReadProficiency" Type="Int32" />
+    <Property Name="WriteProficiency" Type="Int32" />
+    <Property Name="SpeakProficiency" Type="Int32" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK_StaffLanguage_Staff" FromRole="StaffLanguage" ToRole="Staff" />
+  </EntityType>
+  <EntityType Name="StaffPositionHist">
+    <Key>
+      <PropertyRef Name="StaffPositionHistID" />
+    </Key>
+    <Property Name="StaffPositionHistID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffID" Type="Int32" Nullable="false" />
+    <Property Name="PositionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PositionDescription" Type="String" MaxLength="4096" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PositionStartDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PositionLastDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK_StaffPositionHist_Staff" FromRole="StaffPositionHist" ToRole="Staff" />
+    <NavigationProperty Name="Staff1" Relationship="Self.FK_StaffPositionHist_Staff1" FromRole="StaffPositionHist" ToRole="Staff" />
+  </EntityType>
+  <EntityType Name="StaffRemunirationHist">
+    <Key>
+      <PropertyRef Name="StaffRemunirationHistID" />
+    </Key>
+    <Property Name="StaffRemunirationHistID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffID" Type="Int32" Nullable="false" />
+    <Property Name="PositionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IncreaseDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Benifits" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="Notes" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK_StaffRemunirationHist_Staff" FromRole="StaffRemunirationHist" ToRole="Staff" />
+    <NavigationProperty Name="Staff1" Relationship="Self.FK_StaffRemunirationHist_Staff1" FromRole="StaffRemunirationHist" ToRole="Staff" />
+  </EntityType>
+  <EntityType Name="SupportDocumentation">
+    <Key>
+      <PropertyRef Name="SupportDocumentationID" />
+    </Key>
+    <Property Name="SupportDocumentationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemType" Type="Int32" />
+    <Property Name="ItemID" Type="Int32" />
+    <Property Name="DocumentID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SupportRoles">
+    <Key>
+      <PropertyRef Name="SupportRoleID" />
+    </Key>
+    <Property Name="SupportRoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="RoleDescription" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="DefaultLevel" Type="Int32" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="SystemNotice">
+    <Key>
+      <PropertyRef Name="SystemNoticeID" />
+    </Key>
+    <Property Name="SystemNoticeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LinkType" Type="Int32" />
+    <Property Name="LinkID" Type="Int32" />
+    <Property Name="NoticeType" Type="Int32" />
+    <Property Name="Priority" Type="Int32" />
+    <Property Name="RSVP" Type="Boolean" />
+    <Property Name="EventDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="MailedDate" Type="DateTime" Precision="3" />
+    <Property Name="ViewDate" Type="DateTime" Precision="3" />
+    <Property Name="ClearedDate" Type="DateTime" Precision="3" />
+    <Property Name="Notice" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TeamMembers">
+    <Key>
+      <PropertyRef Name="TeamMemberID" />
+    </Key>
+    <Property Name="TeamMemberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TeamID" Type="Int32" Nullable="false" />
+    <Property Name="StaffID" Type="Int32" Nullable="false" />
+    <Property Name="Teamleader" Type="Boolean" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK_TeamMembers_Staff" FromRole="TeamMembers" ToRole="Staff" />
+    <NavigationProperty Name="Teams" Relationship="Self.FK_TeamMembers_Teams" FromRole="TeamMembers" ToRole="Teams" />
+  </EntityType>
+  <EntityType Name="Teams">
+    <Key>
+      <PropertyRef Name="TeamID" />
+    </Key>
+    <Property Name="TeamID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="TeamName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TeamDescription" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+    <Property Name="TeamColour" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="Company" Relationship="Self.FK_Teams_Company" FromRole="Teams" ToRole="Company" />
+    <NavigationProperty Name="TeamMembers" Relationship="Self.FK_TeamMembers_Teams" FromRole="Teams" ToRole="TeamMembers" />
+  </EntityType>
+  <EntityType Name="TravelLog">
+    <Key>
+      <PropertyRef Name="TravelLogID" />
+    </Key>
+    <Property Name="TravelLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffID" Type="Int32" />
+    <Property Name="Destination" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FromDate" Type="DateTime" Precision="0" />
+    <Property Name="ToDate" Type="DateTime" Precision="0" />
+    <Property Name="Notes" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="TravelAllowanceCurrency" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ConversionRate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TravelAllowanceDailyAmt" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="LocalCurrencyDailyValue" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="PayCurrency" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ConvertedToClaimID" Type="Int32" />
+    <NavigationProperty Name="Claims" Relationship="Self.FK_TravelLog_Claims" FromRole="TravelLog" ToRole="Claims" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK_TravelLog_Staff" FromRole="TravelLog" ToRole="Staff" />
+  </EntityType>
+  <EntityType Name="Vehichles">
+    <Key>
+      <PropertyRef Name="VehicleID" />
+    </Key>
+    <Property Name="VehicleID" Type="Int32" Nullable="false" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="RegNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="PurchaseDate" Type="DateTime" Precision="0" />
+    <Property Name="StartingKm" Type="Int32" />
+    <Property Name="Disposed" Type="Boolean" />
+    <Property Name="DisposalKm" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Visas">
+    <Key>
+      <PropertyRef Name="VisaID" />
+    </Key>
+    <Property Name="VisaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffID" Type="Int32" />
+    <Property Name="VisaType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ValidCountryISOCodes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ValidFrom" Type="DateTime" Precision="0" />
+    <Property Name="ValidTo" Type="DateTime" Precision="0" />
+    <Property Name="DocumentID" Type="Int32" />
+    <NavigationProperty Name="Documents" Relationship="Self.FK_Visas_Documents" FromRole="Visas" ToRole="Documents" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK_Visas_Staff" FromRole="Visas" ToRole="Staff" />
+  </EntityType>
+  <Association Name="FK_BankCards_Documents">
+    <End Role="Documents" Type="Self.Documents" Multiplicity="0..1" />
+    <End Role="BankCards" Type="Self.BankCards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Documents">
+        <PropertyRef Name="DocumentID" />
+      </Principal>
+      <Dependent Role="BankCards">
+        <PropertyRef Name="DocumentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BankCards_Staff">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
+    <End Role="BankCards" Type="Self.BankCards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffID" />
+      </Principal>
+      <Dependent Role="BankCards">
+        <PropertyRef Name="StaffID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Claims_Staff">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
+    <End Role="Claims" Type="Self.Claims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffID" />
+      </Principal>
+      <Dependent Role="Claims">
+        <PropertyRef Name="StaffID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TravelLog_Claims">
+    <End Role="Claims" Type="Self.Claims" Multiplicity="0..1" />
+    <End Role="TravelLog" Type="Self.TravelLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Claims">
+        <PropertyRef Name="ClaimID" />
+      </Principal>
+      <Dependent Role="TravelLog">
+        <PropertyRef Name="ConvertedToClaimID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Company_CompanyGroup">
+    <End Role="CompanyGroup" Type="Self.CompanyGroup" Multiplicity="0..1" />
+    <End Role="Company" Type="Self.Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyGroup">
+        <PropertyRef Name="CompanyGroupID" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="CompanyGroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyPolicies_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="CompanyPolicies" Type="Self.CompanyPolicies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="CompanyPolicies">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Department_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="Department" Type="Self.Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="Department">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Documents_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="Documents" Type="Self.Documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="Documents">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Duties_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="Duties" Type="Self.Duties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="Duties">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmploymentType_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="EmploymentType" Type="Self.EmploymentType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="EmploymentType">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KPIInstance_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="KPIInstance" Type="Self.KPIInstance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="KPIInstance">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KPIQuestionGroup_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="KPIQuestionGroup" Type="Self.KPIQuestionGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="KPIQuestionGroup">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LeaveBlockDates_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="LeaveBlockDates" Type="Self.LeaveBlockDates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="LeaveBlockDates">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LeaveBlockDates_Company1">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="LeaveBlockDates" Type="Self.LeaveBlockDates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="LeaveBlockDates">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LeaveType_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="LeaveType" Type="Self.LeaveType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="LeaveType">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LeaveType_Company1">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="LeaveType" Type="Self.LeaveType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="LeaveType">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OvertimeTypes_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="OvertimeTypes" Type="Self.OvertimeTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="OvertimeTypes">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OvertimeTypes_Company1">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="OvertimeTypes" Type="Self.OvertimeTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="OvertimeTypes">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Position_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="Position" Type="Self.Position" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="Position">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SecurityRoles_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="SecurityRoles" Type="Self.SecurityRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="SecurityRoles">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SkillsetGroups_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="SkillsetGroups" Type="Self.SkillsetGroups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="SkillsetGroups">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Teams_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="Teams" Type="Self.Teams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="Teams">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupPolicies_CompanyGroup">
+    <End Role="CompanyGroup" Type="Self.CompanyGroup" Multiplicity="1" />
+    <End Role="GroupPolicies" Type="Self.GroupPolicies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyGroup">
+        <PropertyRef Name="CompanyGroupID" />
+      </Principal>
+      <Dependent Role="GroupPolicies">
+        <PropertyRef Name="CompanyGroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupSkillsetGroups_CompanyGroup">
+    <End Role="CompanyGroup" Type="Self.CompanyGroup" Multiplicity="1" />
+    <End Role="GroupSkillsetGroups" Type="Self.GroupSkillsetGroups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyGroup">
+        <PropertyRef Name="CompanyGroupID" />
+      </Principal>
+      <Dependent Role="GroupSkillsetGroups">
+        <PropertyRef Name="CompanyGroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Position_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="1" />
+    <End Role="Position" Type="Self.Position" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DepartmentID" />
+      </Principal>
+      <Dependent Role="Position">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Licences_Documents">
+    <End Role="Documents" Type="Self.Documents" Multiplicity="0..1" />
+    <End Role="Licences" Type="Self.Licences" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Documents">
+        <PropertyRef Name="DocumentID" />
+      </Principal>
+      <Dependent Role="Licences">
+        <PropertyRef Name="DocumentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MobileDevices_Documents">
+    <End Role="Documents" Type="Self.Documents" Multiplicity="0..1" />
+    <End Role="MobileDevices" Type="Self.MobileDevices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Documents">
+        <PropertyRef Name="DocumentID" />
+      </Principal>
+      <Dependent Role="MobileDevices">
+        <PropertyRef Name="DocumentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SerialLicence_Documents">
+    <End Role="Documents" Type="Self.Documents" Multiplicity="0..1" />
+    <End Role="SerialLicence" Type="Self.SerialLicence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Documents">
+        <PropertyRef Name="DocumentID" />
+      </Principal>
+      <Dependent Role="SerialLicence">
+        <PropertyRef Name="DocumentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Visas_Documents">
+    <End Role="Documents" Type="Self.Documents" Multiplicity="0..1" />
+    <End Role="Visas" Type="Self.Visas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Documents">
+        <PropertyRef Name="DocumentID" />
+      </Principal>
+      <Dependent Role="Visas">
+        <PropertyRef Name="DocumentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Duties_KPIQuestionGroup">
+    <End Role="KPIQuestionGroup" Type="Self.KPIQuestionGroup" Multiplicity="0..1" />
+    <End Role="Duties" Type="Self.Duties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KPIQuestionGroup">
+        <PropertyRef Name="KPIQuestionGroupID" />
+      </Principal>
+      <Dependent Role="Duties">
+        <PropertyRef Name="KPIQuestionGroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PositionDuties_Duties">
+    <End Role="Duties" Type="Self.Duties" Multiplicity="0..1" />
+    <End Role="PositionDuties" Type="Self.PositionDuties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Duties">
+        <PropertyRef Name="DutyID" />
+      </Principal>
+      <Dependent Role="PositionDuties">
+        <PropertyRef Name="DutyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Staff_EmploymentType">
+    <End Role="EmploymentType" Type="Self.EmploymentType" Multiplicity="0..1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmploymentType">
+        <PropertyRef Name="EmploymentTypeID" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="EmploymentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupSkillset_GroupSkillsetGroups">
+    <End Role="GroupSkillsetGroups" Type="Self.GroupSkillsetGroups" Multiplicity="1" />
+    <End Role="GroupSkillset" Type="Self.GroupSkillset" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GroupSkillsetGroups">
+        <PropertyRef Name="SkillsetGroupID" />
+      </Principal>
+      <Dependent Role="GroupSkillset">
+        <PropertyRef Name="SkillsetGroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SkillSet_GroupSkillset">
+    <End Role="GroupSkillset" Type="Self.GroupSkillset" Multiplicity="0..1" />
+    <End Role="SkillSet" Type="Self.SkillSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GroupSkillset">
+        <PropertyRef Name="GroupSkillsetID" />
+      </Principal>
+      <Dependent Role="SkillSet">
+        <PropertyRef Name="GroupSkillsetID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KPIQuestionnaire_KPIInstance">
+    <End Role="KPIInstance" Type="Self.KPIInstance" Multiplicity="0..1" />
+    <End Role="KPIQuestionnaire" Type="Self.KPIQuestionnaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KPIInstance">
+        <PropertyRef Name="KPIInstanceID" />
+      </Principal>
+      <Dependent Role="KPIQuestionnaire">
+        <PropertyRef Name="KPIInstanceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KPILinks_KPIQuestionGroup">
+    <End Role="KPIQuestionGroup" Type="Self.KPIQuestionGroup" Multiplicity="1" />
+    <End Role="KPILinks" Type="Self.KPILinks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KPIQuestionGroup">
+        <PropertyRef Name="KPIQuestionGroupID" />
+      </Principal>
+      <Dependent Role="KPILinks">
+        <PropertyRef Name="KPIQuestionGroup" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KPIQuestionGroupLink_KPIQuestion">
+    <End Role="KPIQuestion" Type="Self.KPIQuestion" Multiplicity="1" />
+    <End Role="KPIQuestionGroupLink" Type="Self.KPIQuestionGroupLink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KPIQuestion">
+        <PropertyRef Name="KPIQuestionID" />
+      </Principal>
+      <Dependent Role="KPIQuestionGroupLink">
+        <PropertyRef Name="KPIQuestionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KPIQuestionGroupLink_KPIQuestionGroup">
+    <End Role="KPIQuestionGroup" Type="Self.KPIQuestionGroup" Multiplicity="1" />
+    <End Role="KPIQuestionGroupLink" Type="Self.KPIQuestionGroupLink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KPIQuestionGroup">
+        <PropertyRef Name="KPIQuestionGroupID" />
+      </Principal>
+      <Dependent Role="KPIQuestionGroupLink">
+        <PropertyRef Name="KPIQuestionGroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KPIQuestionnaire_KPIQuestionGroup">
+    <End Role="KPIQuestionGroup" Type="Self.KPIQuestionGroup" Multiplicity="0..1" />
+    <End Role="KPIQuestionnaire" Type="Self.KPIQuestionnaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KPIQuestionGroup">
+        <PropertyRef Name="KPIQuestionGroupID" />
+      </Principal>
+      <Dependent Role="KPIQuestionnaire">
+        <PropertyRef Name="KPIQuestionGroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Leave_LeaveType">
+    <End Role="LeaveType" Type="Self.LeaveType" Multiplicity="0..1" />
+    <End Role="Leave" Type="Self.Leave" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LeaveType">
+        <PropertyRef Name="LeaveTypeID" />
+      </Principal>
+      <Dependent Role="Leave">
+        <PropertyRef Name="LeaveTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Leave_Staff">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
+    <End Role="Leave" Type="Self.Leave" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffID" />
+      </Principal>
+      <Dependent Role="Leave">
+        <PropertyRef Name="StaffID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Licences_LicenceTypes">
+    <End Role="LicenceTypes" Type="Self.LicenceTypes" Multiplicity="0..1" />
+    <End Role="Licences" Type="Self.Licences" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LicenceTypes">
+        <PropertyRef Name="LicenceTypeID" />
+      </Principal>
+      <Dependent Role="Licences">
+        <PropertyRef Name="LicenceTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Licences_Staff">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
+    <End Role="Licences" Type="Self.Licences" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffID" />
+      </Principal>
+      <Dependent Role="Licences">
+        <PropertyRef Name="StaffID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Merit_MeritType">
+    <End Role="MeritType" Type="Self.MeritType" Multiplicity="0..1" />
+    <End Role="Merit" Type="Self.Merit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MeritType">
+        <PropertyRef Name="MeritTypeID" />
+      </Principal>
+      <Dependent Role="Merit">
+        <PropertyRef Name="MeritTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OverTime_OvertimeTypes">
+    <End Role="OvertimeTypes" Type="Self.OvertimeTypes" Multiplicity="1" />
+    <End Role="OverTime" Type="Self.OverTime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OvertimeTypes">
+        <PropertyRef Name="OvertimeTypeID" />
+      </Principal>
+      <Dependent Role="OverTime">
+        <PropertyRef Name="OvertimeTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OverTime_Staff">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
+    <End Role="OverTime" Type="Self.OverTime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffID" />
+      </Principal>
+      <Dependent Role="OverTime">
+        <PropertyRef Name="StaffID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PositionApprovers_Position">
+    <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+    <End Role="PositionApprovers" Type="Self.PositionApprovers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="PositionID" />
+      </Principal>
+      <Dependent Role="PositionApprovers">
+        <PropertyRef Name="PositionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PositionDuties_Position">
+    <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+    <End Role="PositionDuties" Type="Self.PositionDuties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="PositionID" />
+      </Principal>
+      <Dependent Role="PositionDuties">
+        <PropertyRef Name="PositionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductDocumentation_ProductVersions">
+    <End Role="ProductVersions" Type="Self.ProductVersions" Multiplicity="1" />
+    <End Role="ProductDocumentation" Type="Self.ProductDocumentation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductVersions">
+        <PropertyRef Name="ProductVersionID" />
+      </Principal>
+      <Dependent Role="ProductDocumentation">
+        <PropertyRef Name="ProductVersionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductVersions_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="ProductVersions" Type="Self.ProductVersions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductVersions">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SerialLicence_Staff">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
+    <End Role="SerialLicence" Type="Self.SerialLicence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffID" />
+      </Principal>
+      <Dependent Role="SerialLicence">
+        <PropertyRef Name="StaffID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SkillSet_SkillsetGroups">
+    <End Role="SkillsetGroups" Type="Self.SkillsetGroups" Multiplicity="1" />
+    <End Role="SkillSet" Type="Self.SkillSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SkillsetGroups">
+        <PropertyRef Name="SkillsetGroupID" />
+      </Principal>
+      <Dependent Role="SkillSet">
+        <PropertyRef Name="SkillsetGroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SkillsMatrix_SkillSet">
+    <End Role="SkillSet" Type="Self.SkillSet" Multiplicity="0..1" />
+    <End Role="SkillsMatrix" Type="Self.SkillsMatrix" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SkillSet">
+        <PropertyRef Name="SkillsetID" />
+      </Principal>
+      <Dependent Role="SkillsMatrix">
+        <PropertyRef Name="SkillSetID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SkillsMatrix_Staff">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
+    <End Role="SkillsMatrix" Type="Self.SkillsMatrix" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffID" />
+      </Principal>
+      <Dependent Role="SkillsMatrix">
+        <PropertyRef Name="StaffID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StaffLanguage_Staff">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="StaffLanguage" Type="Self.StaffLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffID" />
+      </Principal>
+      <Dependent Role="StaffLanguage">
+        <PropertyRef Name="StaffID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StaffPositionHist_Staff">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="StaffPositionHist" Type="Self.StaffPositionHist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffID" />
+      </Principal>
+      <Dependent Role="StaffPositionHist">
+        <PropertyRef Name="StaffID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StaffPositionHist_Staff1">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="StaffPositionHist" Type="Self.StaffPositionHist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffID" />
+      </Principal>
+      <Dependent Role="StaffPositionHist">
+        <PropertyRef Name="StaffID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StaffRemunirationHist_Staff">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="StaffRemunirationHist" Type="Self.StaffRemunirationHist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffID" />
+      </Principal>
+      <Dependent Role="StaffRemunirationHist">
+        <PropertyRef Name="StaffID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StaffRemunirationHist_Staff1">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="StaffRemunirationHist" Type="Self.StaffRemunirationHist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffID" />
+      </Principal>
+      <Dependent Role="StaffRemunirationHist">
+        <PropertyRef Name="StaffID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeamMembers_Staff">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="TeamMembers" Type="Self.TeamMembers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffID" />
+      </Principal>
+      <Dependent Role="TeamMembers">
+        <PropertyRef Name="StaffID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TravelLog_Staff">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
+    <End Role="TravelLog" Type="Self.TravelLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffID" />
+      </Principal>
+      <Dependent Role="TravelLog">
+        <PropertyRef Name="StaffID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Visas_Staff">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
+    <End Role="Visas" Type="Self.Visas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffID" />
+      </Principal>
+      <Dependent Role="Visas">
+        <PropertyRef Name="StaffID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeamMembers_Teams">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+    <End Role="TeamMembers" Type="Self.TeamMembers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="TeamID" />
+      </Principal>
+      <Dependent Role="TeamMembers">
+        <PropertyRef Name="TeamID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ActivityAssignees" EntityType="Self.ActivityAssignees" />
+    <EntitySet Name="ActivitySheets" EntityType="Self.ActivitySheets" />
+    <EntitySet Name="Approvals" EntityType="Self.Approvals" />
+    <EntitySet Name="BankCards" EntityType="Self.BankCards" />
+    <EntitySet Name="Claims" EntityType="Self.Claims" />
+    <EntitySet Name="Company" EntityType="Self.Company" />
+    <EntitySet Name="CompanyGroup" EntityType="Self.CompanyGroup" />
+    <EntitySet Name="CompanyPolicies" EntityType="Self.CompanyPolicies" />
+    <EntitySet Name="Department" EntityType="Self.Department" />
+    <EntitySet Name="Documents" EntityType="Self.Documents" />
+    <EntitySet Name="Duties" EntityType="Self.Duties" />
+    <EntitySet Name="EmploymentType" EntityType="Self.EmploymentType" />
+    <EntitySet Name="GroupPolicies" EntityType="Self.GroupPolicies" />
+    <EntitySet Name="GroupSkillset" EntityType="Self.GroupSkillset" />
+    <EntitySet Name="GroupSkillsetGroups" EntityType="Self.GroupSkillsetGroups" />
+    <EntitySet Name="KPIIncident" EntityType="Self.KPIIncident" />
+    <EntitySet Name="KPIInstance" EntityType="Self.KPIInstance" />
+    <EntitySet Name="KPILinks" EntityType="Self.KPILinks" />
+    <EntitySet Name="KPIQuestion" EntityType="Self.KPIQuestion" />
+    <EntitySet Name="KPIQuestionGroup" EntityType="Self.KPIQuestionGroup" />
+    <EntitySet Name="KPIQuestionGroupLink" EntityType="Self.KPIQuestionGroupLink" />
+    <EntitySet Name="KPIQuestionnaire" EntityType="Self.KPIQuestionnaire" />
+    <EntitySet Name="KPIRater" EntityType="Self.KPIRater" />
+    <EntitySet Name="KPIRating" EntityType="Self.KPIRating" />
+    <EntitySet Name="Leave" EntityType="Self.Leave" />
+    <EntitySet Name="LeaveBlockDates" EntityType="Self.LeaveBlockDates" />
+    <EntitySet Name="LeaveType" EntityType="Self.LeaveType" />
+    <EntitySet Name="Licences" EntityType="Self.Licences" />
+    <EntitySet Name="LicenceTypes" EntityType="Self.LicenceTypes" />
+    <EntitySet Name="Merit" EntityType="Self.Merit" />
+    <EntitySet Name="MeritType" EntityType="Self.MeritType" />
+    <EntitySet Name="MobileDevices" EntityType="Self.MobileDevices" />
+    <EntitySet Name="OverTime" EntityType="Self.OverTime" />
+    <EntitySet Name="OvertimeTypes" EntityType="Self.OvertimeTypes" />
+    <EntitySet Name="Position" EntityType="Self.Position" />
+    <EntitySet Name="PositionApprovers" EntityType="Self.PositionApprovers" />
+    <EntitySet Name="PositionDuties" EntityType="Self.PositionDuties" />
+    <EntitySet Name="ProductDocumentation" EntityType="Self.ProductDocumentation" />
+    <EntitySet Name="Products" EntityType="Self.Products" />
+    <EntitySet Name="ProductVersions" EntityType="Self.ProductVersions" />
+    <EntitySet Name="SecurityRoles" EntityType="Self.SecurityRoles" />
+    <EntitySet Name="SerialLicence" EntityType="Self.SerialLicence" />
+    <EntitySet Name="SkillSet" EntityType="Self.SkillSet" />
+    <EntitySet Name="SkillsetGroups" EntityType="Self.SkillsetGroups" />
+    <EntitySet Name="SkillsMatrix" EntityType="Self.SkillsMatrix" />
+    <EntitySet Name="Staff" EntityType="Self.Staff" />
+    <EntitySet Name="StaffEmpEvents" EntityType="Self.StaffEmpEvents" />
+    <EntitySet Name="StaffLanguage" EntityType="Self.StaffLanguage" />
+    <EntitySet Name="StaffPositionHist" EntityType="Self.StaffPositionHist" />
+    <EntitySet Name="StaffRemunirationHist" EntityType="Self.StaffRemunirationHist" />
+    <EntitySet Name="SupportDocumentation" EntityType="Self.SupportDocumentation" />
+    <EntitySet Name="SupportRoles" EntityType="Self.SupportRoles" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="SystemNotice" EntityType="Self.SystemNotice" />
+    <EntitySet Name="TeamMembers" EntityType="Self.TeamMembers" />
+    <EntitySet Name="Teams" EntityType="Self.Teams" />
+    <EntitySet Name="TravelLog" EntityType="Self.TravelLog" />
+    <EntitySet Name="Vehichles" EntityType="Self.Vehichles" />
+    <EntitySet Name="Visas" EntityType="Self.Visas" />
+    <AssociationSet Name="FK_BankCards_Documents" Association="Self.FK_BankCards_Documents">
+      <End Role="Documents" EntitySet="Documents" />
+      <End Role="BankCards" EntitySet="BankCards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BankCards_Staff" Association="Self.FK_BankCards_Staff">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="BankCards" EntitySet="BankCards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Claims_Staff" Association="Self.FK_Claims_Staff">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="Claims" EntitySet="Claims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TravelLog_Claims" Association="Self.FK_TravelLog_Claims">
+      <End Role="Claims" EntitySet="Claims" />
+      <End Role="TravelLog" EntitySet="TravelLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Company_CompanyGroup" Association="Self.FK_Company_CompanyGroup">
+      <End Role="CompanyGroup" EntitySet="CompanyGroup" />
+      <End Role="Company" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyPolicies_Company" Association="Self.FK_CompanyPolicies_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="CompanyPolicies" EntitySet="CompanyPolicies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Department_Company" Association="Self.FK_Department_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Department" EntitySet="Department" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Documents_Company" Association="Self.FK_Documents_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Documents" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Duties_Company" Association="Self.FK_Duties_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Duties" EntitySet="Duties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmploymentType_Company" Association="Self.FK_EmploymentType_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="EmploymentType" EntitySet="EmploymentType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KPIInstance_Company" Association="Self.FK_KPIInstance_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="KPIInstance" EntitySet="KPIInstance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KPIQuestionGroup_Company" Association="Self.FK_KPIQuestionGroup_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="KPIQuestionGroup" EntitySet="KPIQuestionGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LeaveBlockDates_Company" Association="Self.FK_LeaveBlockDates_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="LeaveBlockDates" EntitySet="LeaveBlockDates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LeaveBlockDates_Company1" Association="Self.FK_LeaveBlockDates_Company1">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="LeaveBlockDates" EntitySet="LeaveBlockDates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LeaveType_Company" Association="Self.FK_LeaveType_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="LeaveType" EntitySet="LeaveType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LeaveType_Company1" Association="Self.FK_LeaveType_Company1">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="LeaveType" EntitySet="LeaveType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OvertimeTypes_Company" Association="Self.FK_OvertimeTypes_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="OvertimeTypes" EntitySet="OvertimeTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OvertimeTypes_Company1" Association="Self.FK_OvertimeTypes_Company1">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="OvertimeTypes" EntitySet="OvertimeTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Position_Company" Association="Self.FK_Position_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Position" EntitySet="Position" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SecurityRoles_Company" Association="Self.FK_SecurityRoles_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="SecurityRoles" EntitySet="SecurityRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SkillsetGroups_Company" Association="Self.FK_SkillsetGroups_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="SkillsetGroups" EntitySet="SkillsetGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Teams_Company" Association="Self.FK_Teams_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Teams" EntitySet="Teams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupPolicies_CompanyGroup" Association="Self.FK_GroupPolicies_CompanyGroup">
+      <End Role="CompanyGroup" EntitySet="CompanyGroup" />
+      <End Role="GroupPolicies" EntitySet="GroupPolicies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupSkillsetGroups_CompanyGroup" Association="Self.FK_GroupSkillsetGroups_CompanyGroup">
+      <End Role="CompanyGroup" EntitySet="CompanyGroup" />
+      <End Role="GroupSkillsetGroups" EntitySet="GroupSkillsetGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Position_Department" Association="Self.FK_Position_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Position" EntitySet="Position" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Licences_Documents" Association="Self.FK_Licences_Documents">
+      <End Role="Documents" EntitySet="Documents" />
+      <End Role="Licences" EntitySet="Licences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MobileDevices_Documents" Association="Self.FK_MobileDevices_Documents">
+      <End Role="Documents" EntitySet="Documents" />
+      <End Role="MobileDevices" EntitySet="MobileDevices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SerialLicence_Documents" Association="Self.FK_SerialLicence_Documents">
+      <End Role="Documents" EntitySet="Documents" />
+      <End Role="SerialLicence" EntitySet="SerialLicence" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Visas_Documents" Association="Self.FK_Visas_Documents">
+      <End Role="Documents" EntitySet="Documents" />
+      <End Role="Visas" EntitySet="Visas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Duties_KPIQuestionGroup" Association="Self.FK_Duties_KPIQuestionGroup">
+      <End Role="KPIQuestionGroup" EntitySet="KPIQuestionGroup" />
+      <End Role="Duties" EntitySet="Duties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PositionDuties_Duties" Association="Self.FK_PositionDuties_Duties">
+      <End Role="Duties" EntitySet="Duties" />
+      <End Role="PositionDuties" EntitySet="PositionDuties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Staff_EmploymentType" Association="Self.FK_Staff_EmploymentType">
+      <End Role="EmploymentType" EntitySet="EmploymentType" />
+      <End Role="Staff" EntitySet="Staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupSkillset_GroupSkillsetGroups" Association="Self.FK_GroupSkillset_GroupSkillsetGroups">
+      <End Role="GroupSkillsetGroups" EntitySet="GroupSkillsetGroups" />
+      <End Role="GroupSkillset" EntitySet="GroupSkillset" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SkillSet_GroupSkillset" Association="Self.FK_SkillSet_GroupSkillset">
+      <End Role="GroupSkillset" EntitySet="GroupSkillset" />
+      <End Role="SkillSet" EntitySet="SkillSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KPIQuestionnaire_KPIInstance" Association="Self.FK_KPIQuestionnaire_KPIInstance">
+      <End Role="KPIInstance" EntitySet="KPIInstance" />
+      <End Role="KPIQuestionnaire" EntitySet="KPIQuestionnaire" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KPILinks_KPIQuestionGroup" Association="Self.FK_KPILinks_KPIQuestionGroup">
+      <End Role="KPIQuestionGroup" EntitySet="KPIQuestionGroup" />
+      <End Role="KPILinks" EntitySet="KPILinks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KPIQuestionGroupLink_KPIQuestion" Association="Self.FK_KPIQuestionGroupLink_KPIQuestion">
+      <End Role="KPIQuestion" EntitySet="KPIQuestion" />
+      <End Role="KPIQuestionGroupLink" EntitySet="KPIQuestionGroupLink" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KPIQuestionGroupLink_KPIQuestionGroup" Association="Self.FK_KPIQuestionGroupLink_KPIQuestionGroup">
+      <End Role="KPIQuestionGroup" EntitySet="KPIQuestionGroup" />
+      <End Role="KPIQuestionGroupLink" EntitySet="KPIQuestionGroupLink" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KPIQuestionnaire_KPIQuestionGroup" Association="Self.FK_KPIQuestionnaire_KPIQuestionGroup">
+      <End Role="KPIQuestionGroup" EntitySet="KPIQuestionGroup" />
+      <End Role="KPIQuestionnaire" EntitySet="KPIQuestionnaire" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Leave_LeaveType" Association="Self.FK_Leave_LeaveType">
+      <End Role="LeaveType" EntitySet="LeaveType" />
+      <End Role="Leave" EntitySet="Leave" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Leave_Staff" Association="Self.FK_Leave_Staff">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="Leave" EntitySet="Leave" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Licences_LicenceTypes" Association="Self.FK_Licences_LicenceTypes">
+      <End Role="LicenceTypes" EntitySet="LicenceTypes" />
+      <End Role="Licences" EntitySet="Licences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Licences_Staff" Association="Self.FK_Licences_Staff">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="Licences" EntitySet="Licences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Merit_MeritType" Association="Self.FK_Merit_MeritType">
+      <End Role="MeritType" EntitySet="MeritType" />
+      <End Role="Merit" EntitySet="Merit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OverTime_OvertimeTypes" Association="Self.FK_OverTime_OvertimeTypes">
+      <End Role="OvertimeTypes" EntitySet="OvertimeTypes" />
+      <End Role="OverTime" EntitySet="OverTime" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OverTime_Staff" Association="Self.FK_OverTime_Staff">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="OverTime" EntitySet="OverTime" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PositionApprovers_Position" Association="Self.FK_PositionApprovers_Position">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="PositionApprovers" EntitySet="PositionApprovers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PositionDuties_Position" Association="Self.FK_PositionDuties_Position">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="PositionDuties" EntitySet="PositionDuties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductDocumentation_ProductVersions" Association="Self.FK_ProductDocumentation_ProductVersions">
+      <End Role="ProductVersions" EntitySet="ProductVersions" />
+      <End Role="ProductDocumentation" EntitySet="ProductDocumentation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductVersions_Products" Association="Self.FK_ProductVersions_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductVersions" EntitySet="ProductVersions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SerialLicence_Staff" Association="Self.FK_SerialLicence_Staff">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="SerialLicence" EntitySet="SerialLicence" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SkillSet_SkillsetGroups" Association="Self.FK_SkillSet_SkillsetGroups">
+      <End Role="SkillsetGroups" EntitySet="SkillsetGroups" />
+      <End Role="SkillSet" EntitySet="SkillSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SkillsMatrix_SkillSet" Association="Self.FK_SkillsMatrix_SkillSet">
+      <End Role="SkillSet" EntitySet="SkillSet" />
+      <End Role="SkillsMatrix" EntitySet="SkillsMatrix" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SkillsMatrix_Staff" Association="Self.FK_SkillsMatrix_Staff">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="SkillsMatrix" EntitySet="SkillsMatrix" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StaffLanguage_Staff" Association="Self.FK_StaffLanguage_Staff">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="StaffLanguage" EntitySet="StaffLanguage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StaffPositionHist_Staff" Association="Self.FK_StaffPositionHist_Staff">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="StaffPositionHist" EntitySet="StaffPositionHist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StaffPositionHist_Staff1" Association="Self.FK_StaffPositionHist_Staff1">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="StaffPositionHist" EntitySet="StaffPositionHist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StaffRemunirationHist_Staff" Association="Self.FK_StaffRemunirationHist_Staff">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="StaffRemunirationHist" EntitySet="StaffRemunirationHist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StaffRemunirationHist_Staff1" Association="Self.FK_StaffRemunirationHist_Staff1">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="StaffRemunirationHist" EntitySet="StaffRemunirationHist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeamMembers_Staff" Association="Self.FK_TeamMembers_Staff">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="TeamMembers" EntitySet="TeamMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TravelLog_Staff" Association="Self.FK_TravelLog_Staff">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="TravelLog" EntitySet="TravelLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Visas_Staff" Association="Self.FK_Visas_Staff">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="Visas" EntitySet="Visas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeamMembers_Teams" Association="Self.FK_TeamMembers_Teams">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="TeamMembers" EntitySet="TeamMembers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

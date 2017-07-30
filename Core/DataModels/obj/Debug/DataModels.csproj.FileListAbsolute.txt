@@ -1,0 +1,10 @@
+C:\Users\Brandon\Documents\Visual Studio 2017\Projects\ClassLibrary1\DataModels\bin\Debug\DataModels.dll.config
+C:\Users\Brandon\Documents\Visual Studio 2017\Projects\ClassLibrary1\DataModels\bin\Debug\DataModels.dll
+C:\Users\Brandon\Documents\Visual Studio 2017\Projects\ClassLibrary1\DataModels\bin\Debug\DataModels.pdb
+C:\Users\Brandon\Documents\Visual Studio 2017\Projects\ClassLibrary1\DataModels\bin\Debug\EntityFramework.dll
+C:\Users\Brandon\Documents\Visual Studio 2017\Projects\ClassLibrary1\DataModels\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Brandon\Documents\Visual Studio 2017\Projects\ClassLibrary1\DataModels\bin\Debug\EntityFramework.xml
+C:\Users\Brandon\Documents\Visual Studio 2017\Projects\ClassLibrary1\DataModels\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Brandon\Documents\Visual Studio 2017\Projects\ClassLibrary1\DataModels\obj\Debug\DataModels.csprojResolveAssemblyReference.cache
+C:\Users\Brandon\Documents\Visual Studio 2017\Projects\ClassLibrary1\DataModels\obj\Debug\DataModels.dll
+C:\Users\Brandon\Documents\Visual Studio 2017\Projects\ClassLibrary1\DataModels\obj\Debug\DataModels.pdb

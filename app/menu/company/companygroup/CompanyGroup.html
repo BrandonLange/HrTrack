@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Company Group</title>
+    <script src="company/companygroup/CompanyGroup.js"></script>
+</head>
+
+<body>
+    <div class="ui four column stackable grid">
+        <div class="four wide column">
+            <select name="gender" class="ui dropdown" id="dropdown_items">
+            </select>
+        </div>
+    </div>
+    <div class="ui four column stackable grid">
+        <div class="ui input three wide column">
+            <input type="text" name="validation_GroupName" id="validation_GroupName">
+        </div>
+        <div class="one wide column">
+            <button class="ui primary button" id="btn_addCompanyGroup">Add</button>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+$('.ui.dropdown')
+    .dropdown();
+</script>
+
+</html>

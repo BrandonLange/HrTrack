@@ -10,11 +10,11 @@ var Homepage = function() {
         LoadMainPage();
     }
 
-    var LoadMainPage = function(){
-      var html = "<div style='background-image: url(../assets/images/HomePage-Logo.png); background-repeat: round; background-size:cover; width: 100%; height: 50%;'></div>"
+    var LoadMainPage = function() {
+        var html = "<div style='background-image: url(../assets/images/HomePage-Logo.png); background-repeat: round; background-size:cover; width: 100%; height: 50%;'></div>"
 
-      $('#main_page_content').empty()
-      $('#main_page_content').append(html)
+        $('#main_page_content').empty()
+        $('#main_page_content').append(html)
     }
 
     var goToTab = function(itemToLoad) {
@@ -22,6 +22,11 @@ var Homepage = function() {
             case "HOME":
                 {
                     LoadMainPage();
+                }
+                break;
+            case "COMPANYGROUP":
+                {
+                    $("#main_page_content").load("company/companygroup/CompanyGroup.html");
                 }
                 break;
             case "COMPANYPOLICIES":
@@ -51,9 +56,9 @@ var Homepage = function() {
             window.location.href = "../index.html";
         })
 
-        $('#Main_Menu > a').on('click', function(){
-          $('#Main_Menu > a').removeClass('active');
-          $(this).addClass('active')
+        $('#Main_Menu > a').on('click', function() {
+            $('#Main_Menu > a').removeClass('active');
+            $(this).addClass('active')
         })
 
         $(".tab_item").on("click", function() {
