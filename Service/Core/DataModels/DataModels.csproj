@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4D28304C-C39E-4368-8DA8-D9497BDD1556}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataModels</RootNamespace>
+    <AssemblyName>DataModels</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActivityAssignees.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActivitySheets.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Approvals.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BankCards.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Claims.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Company.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyGroup.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyPolicies.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Department.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Documents.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Duties.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmploymentType.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GroupPolicies.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GroupSkillset.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GroupSkillsetGroups.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HrTrackEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HrTrackEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HrTrackEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HrTrackEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HrTrackEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="HrTrackServiceModels\Base.cs" />
+    <Compile Include="HrTrackServiceModels\CompanyGroup.cs" />
+    <Compile Include="HrTrackServiceModels\GroupPolicies.cs" />
+    <Compile Include="KPIIncident.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KPIInstance.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KPILinks.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KPIQuestion.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KPIQuestionGroup.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KPIQuestionGroupLink.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KPIQuestionnaire.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KPIRater.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KPIRating.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Leave.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveBlockDates.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveType.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Licences.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LicenceTypes.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Merit.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MeritType.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MobileDevices.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OverTime.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OvertimeTypes.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Position.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PositionApprovers.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PositionDuties.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductDocumentation.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Products.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductVersions.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ICompanyGroup.cs" />
+    <Compile Include="Repositories\IGroupPolicy.cs" />
+    <Compile Include="SecurityRoles.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SerialLicence.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkillSet.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkillsetGroups.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkillsMatrix.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Staff.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StaffEmpEvents.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StaffLanguage.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StaffPositionHist.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StaffRemunirationHist.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SupportDocumentation.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SupportRoles.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemNotice.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TeamMembers.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Teams.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\DataContext.cs" />
+    <Compile Include="Transactions\TCompanyGroup.cs" />
+    <Compile Include="Transactions\TGroupPolicy.cs" />
+    <Compile Include="TravelLog.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vehichles.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Visas.cs">
+      <DependentUpon>HrTrackEntities.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="HrTrackEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HrTrackEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="HrTrackEntities.edmx.diagram">
+      <DependentUpon>HrTrackEntities.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HrTrackEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HrTrackEntities.edmx</DependentUpon>
+      <LastGenOutput>HrTrackEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="HrTrackEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HrTrackEntities.edmx</DependentUpon>
+      <LastGenOutput>HrTrackEntities.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
