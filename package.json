@@ -26,6 +26,8 @@
     "semantic-ui": "^2.2.10"
   },
   "dependencies": {
-    "semantic-ui": "^2.2.10"
+    "quill": "^1.2.6",
+    "semantic-ui": "^2.2.10",
+    "tinymce": "^4.6.4"
   }
 }
