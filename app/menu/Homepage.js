@@ -19,6 +19,7 @@ var Homepage = function() {
 
     var goToTab = function(itemToLoad) {
         switch (itemToLoad) {
+<<<<<<< Updated upstream
             case "HOME":
                 {
                     LoadMainPage();
@@ -29,6 +30,9 @@ var Homepage = function() {
                     $("#main_page_content").load("company/companygroup/CompanyGroup.html");
                 }
                 break;
+=======
+
+>>>>>>> Stashed changes
             case "COMPANYPOLICIES":
                 {
                     $("#main_page_content").load("policies/company/CompanyPolicies.html");
@@ -37,6 +41,11 @@ var Homepage = function() {
             case "GROUPPOLICIES":
                 {
                     $("#main_page_content").load("policies/group/GroupPolicies.html");
+                }
+                break;
+            case "TEXTEDITOR":
+                {
+                    $("#main_page_content").load("workshop/texteditor.html");
                 }
                 break;
         }
